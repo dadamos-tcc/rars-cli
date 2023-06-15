@@ -63,10 +63,10 @@ public class SettingsMemoryConfigurationAction extends GuiAction {
      * When this action is triggered, launch a dialog to view and modify
      * editor settings.
      */
-    public void actionPerformed(ActionEvent e) {
-        JDialog configDialog = new MemoryConfigurationDialog(Globals.getGui(), "Memory Configuration", true);
-        configDialog.setVisible(true);
-    }
+    // public void actionPerformed(ActionEvent e) {
+    //     JDialog configDialog = new MemoryConfigurationDialog(Globals.getGui(), "Memory Configuration", true);
+    //     configDialog.setVisible(true);
+    // }
 
     //////////////////////////////////////////////////////////////////////////////
     //
@@ -220,9 +220,9 @@ public class SettingsMemoryConfigurationAction extends GuiAction {
         private void performApply() {
             if (MemoryConfigurations.setCurrentConfiguration(this.selectedConfigurationButton.getConfiguration())) {
                 Globals.getSettings().setMemoryConfiguration(this.selectedConfigurationButton.getConfiguration().getConfigurationIdentifier());
-                Globals.getGui().getRegistersPane().getRegistersWindow().clearHighlighting();
-                Globals.getGui().getRegistersPane().getRegistersWindow().updateRegisters();
-                Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateBaseAddressComboBox();
+                // Globals.getGui().getRegistersPane().getRegistersWindow().clearHighlighting();
+                // Globals.getGui().getRegistersPane().getRegistersWindow().updateRegisters();
+                // Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateBaseAddressComboBox();
                 // 21 July 2009 Re-assemble if the situation demands it to maintain consistency.
                 if (FileStatus.get() == FileStatus.RUNNABLE ||
                         FileStatus.get() == FileStatus.RUNNING ||
@@ -232,7 +232,7 @@ public class SettingsMemoryConfigurationAction extends GuiAction {
                     if (FileStatus.get() == FileStatus.RUNNING) {
                         Simulator.getInstance().stopExecution();
                     }
-                    Globals.getGui().getRunAssembleAction().actionPerformed(null);
+                    // Globals.getGui().getRunAssembleAction().actionPerformed(null);
                 }
             }
         }

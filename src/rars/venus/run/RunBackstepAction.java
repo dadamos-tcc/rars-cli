@@ -80,9 +80,9 @@ public class RunBackstepAction extends GuiAction {
             Globals.program.getBackStepper().backStep();
             Memory.getInstance().deleteObserver(executePane.getDataSegmentWindow());
             RegisterFile.deleteRegistersObserver(executePane.getRegistersWindow());
-            executePane.getRegistersWindow().updateRegisters();
-            executePane.getFloatingPointWindow().updateRegisters();
-            executePane.getControlAndStatusWindow().updateRegisters();
+            // executePane.getRegistersWindow().updateRegisters();
+            // executePane.getFloatingPointWindow().updateRegisters();
+            // executePane.getControlAndStatusWindow().updateRegisters();
             executePane.getDataSegmentWindow().updateValues();
             executePane.getTextSegmentWindow().highlightStepAtPC(); // Argument aded 25 June 2007
             FileStatus.set(FileStatus.RUNNABLE);

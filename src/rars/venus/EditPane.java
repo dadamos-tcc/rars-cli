@@ -133,7 +133,7 @@ public class EditPane extends JPanel implements Observer {
                                 FileStatus.set(FileStatus.EDITED);
                         }
 
-                        Globals.getGui().getMainPane().getExecutePane().clearPane(); // DPS 9-Aug-2011
+                        // Globals.getGui().getMainPane().getExecutePane().clearPane(); // DPS 9-Aug-2011
 
                         if (showingLineNumbers()) {
                             lineNumbers.setText(getLineNumbersList(sourceCode.getDocument()));

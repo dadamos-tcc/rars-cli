@@ -109,7 +109,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
      * Should convert the lines of code over to the table rows and columns.
      **/
     public void setupTable() {
-        int addressBase = Globals.getGui().getMainPane().getExecutePane().getAddressDisplayBase();
+        // int addressBase = Globals.getGui().getMainPane().getExecutePane().getAddressDisplayBase();
         codeHighlighting = true;
         breakpointsEnabled = true;
         ArrayList<ProgramStatement> sourceStatementList = Globals.program.getMachineList();
@@ -135,7 +135,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
             intAddresses[i] = statement.getAddress();
             addressRows.put(intAddresses[i], i);
             data[i][BREAK_COLUMN] = false;
-            data[i][ADDRESS_COLUMN] = NumberDisplayBaseChooser.formatUnsignedInteger(statement.getAddress(), addressBase);
+            // data[i][ADDRESS_COLUMN] = NumberDisplayBaseChooser.formatUnsignedInteger(statement.getAddress(), addressBase);
             data[i][CODE_COLUMN] = NumberDisplayBaseChooser.formatNumber(statement.getBinaryStatement(), 16);
             data[i][BASIC_COLUMN] = statement.getPrintableBasicAssemblyStatement();
             String sourceString = "";
@@ -246,12 +246,12 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
     public void updateCodeAddresses() {
         if (contentPane.getComponentCount() == 0)
             return; // ignore if no content to change
-        int addressBase = Globals.getGui().getMainPane().getExecutePane().getAddressDisplayBase();
+        // int addressBase = Globals.getGui().getMainPane().getExecutePane().getAddressDisplayBase();
         int address;
         String formattedAddress;
         for (int i = 0; i < intAddresses.length; i++) {
-            formattedAddress = NumberDisplayBaseChooser.formatUnsignedInteger(intAddresses[i], addressBase);
-            table.getModel().setValueAt(formattedAddress, i, ADDRESS_COLUMN);
+            // formattedAddress = NumberDisplayBaseChooser.formatUnsignedInteger(intAddresses[i], addressBase);
+            // table.getModel().setValueAt(formattedAddress, i, ADDRESS_COLUMN);
         }
     }
 
@@ -377,12 +377,12 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
                 // Let's update the value displayed in the DataSegmentWindow too.  But it only observes memory while
                 // the MIPS program is running, and even then only in timed or step mode.  There are good reasons
                 // for that.  So we'll pretend to be Memory observable and send it a fake memory write update.
-                try {
-                    Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow()
-                            .update(Memory.getInstance(), new MemoryAccessNotice(AccessNotice.WRITE, address, value));
-                } catch (Exception e) {
-                    // Not sure if anything bad can happen in this sequence, but if anything does we can let it go.
-                }
+                // try {
+                //     Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow()
+                //             .update(Memory.getInstance(), new MemoryAccessNotice(AccessNotice.WRITE, address, value));
+                // } catch (Exception e) {
+                //     // Not sure if anything bad can happen in this sequence, but if anything does we can let it go.
+                // }
             }
         }
     }
@@ -813,23 +813,23 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
             Component cell = super.getTableCellRendererComponent(table, value,
                     isSelected, hasFocus, row, column);
             //cell.setFont(tableCellFont);
-            TextSegmentWindow textSegment = Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow();
+            // TextSegmentWindow textSegment = Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow();
             Settings settings = Globals.getSettings();
-            boolean highlighting = textSegment.getCodeHighlighting();
+            // boolean highlighting = textSegment.getCodeHighlighting();
 
-            if (highlighting && textSegment.getIntCodeAddressAtRow(row) == highlightAddress) {
-                cell.setBackground(settings.getColorSettingByPosition(Settings.TEXTSEGMENT_HIGHLIGHT_BACKGROUND));
-                cell.setForeground(settings.getColorSettingByPosition(Settings.TEXTSEGMENT_HIGHLIGHT_FOREGROUND));
-                cell.setFont(settings.getFontByPosition(Settings.TEXTSEGMENT_HIGHLIGHT_FONT));
-            } else if (row % 2 == 0) {
-                cell.setBackground(settings.getColorSettingByPosition(Settings.EVEN_ROW_BACKGROUND));
-                cell.setForeground(settings.getColorSettingByPosition(Settings.EVEN_ROW_FOREGROUND));
-                cell.setFont(settings.getFontByPosition(Settings.EVEN_ROW_FONT));
-            } else {
-                cell.setBackground(settings.getColorSettingByPosition(Settings.ODD_ROW_BACKGROUND));
-                cell.setForeground(settings.getColorSettingByPosition(Settings.ODD_ROW_FOREGROUND));
-                cell.setFont(settings.getFontByPosition(Settings.ODD_ROW_FONT));
-            }
+            // if (highlighting && textSegment.getIntCodeAddressAtRow(row) == highlightAddress) {
+            //     cell.setBackground(settings.getColorSettingByPosition(Settings.TEXTSEGMENT_HIGHLIGHT_BACKGROUND));
+            //     cell.setForeground(settings.getColorSettingByPosition(Settings.TEXTSEGMENT_HIGHLIGHT_FOREGROUND));
+            //     cell.setFont(settings.getFontByPosition(Settings.TEXTSEGMENT_HIGHLIGHT_FONT));
+            // } else if (row % 2 == 0) {
+            //     cell.setBackground(settings.getColorSettingByPosition(Settings.EVEN_ROW_BACKGROUND));
+            //     cell.setForeground(settings.getColorSettingByPosition(Settings.EVEN_ROW_FOREGROUND));
+            //     cell.setFont(settings.getFontByPosition(Settings.EVEN_ROW_FONT));
+            // } else {
+            //     cell.setBackground(settings.getColorSettingByPosition(Settings.ODD_ROW_BACKGROUND));
+            //     cell.setForeground(settings.getColorSettingByPosition(Settings.ODD_ROW_FOREGROUND));
+            //     cell.setFont(settings.getFontByPosition(Settings.ODD_ROW_FONT));
+            // }
             return cell;
         }
 

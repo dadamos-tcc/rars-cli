@@ -10,7 +10,7 @@ import rars.simulator.Simulator;
 import rars.util.Binary;
 import rars.util.FilenameFinder;
 import rars.util.MemoryDump;
-import rars.venus.VenusUI;
+// import rars.venus.VenusUI;
 import rars.api.Options;
 
 import javax.swing.*;
@@ -158,9 +158,10 @@ public class Launch {
             System.exit(Globals.exitCode);
         }
         
-        if (gui) {
-            launchIDE();
-        } else { // running from command line.
+        if (!gui) {
+        // if (gui) {
+        //     launchIDE();
+        // } else { // running from command line.
             // assure command mode works in headless environment (generates exception if not)
             System.setProperty("java.awt.headless", "true");
             
@@ -229,17 +230,17 @@ public class Launch {
     // There are no command arguments, so run in interactive mode by
     // launching the GUI-fronted integrated development environment.
 
-    private void launchIDE() {
-        // System.setProperty("apple.laf.useScreenMenuBar", "true"); // Puts RARS menu on Mac OS menu bar
-        SwingUtilities.invokeLater(
-                new Runnable() {
-                    public void run() {
-                        //Turn off metal's use of bold fonts
-                        //UIManager.put("swing.boldMetal", Boolean.FALSE);
-                        new VenusUI("RARS " + Globals.version, filenameList);
-                    }
-                });
-    }
+    // private void launchIDE() {
+    //     // System.setProperty("apple.laf.useScreenMenuBar", "true"); // Puts RARS menu on Mac OS menu bar
+    //     SwingUtilities.invokeLater(
+    //             new Runnable() {
+    //                 public void run() {
+    //                     //Turn off metal's use of bold fonts
+    //                     //UIManager.put("swing.boldMetal", Boolean.FALSE);
+    //                     new VenusUI("RARS " + Globals.version, filenameList);
+    //                 }
+    //             });
+    // }
 
 
     //////////////////////////////////////////////////////////////////////

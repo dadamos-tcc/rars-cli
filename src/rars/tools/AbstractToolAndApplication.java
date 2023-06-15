@@ -191,7 +191,7 @@ public abstract class AbstractToolAndApplication extends JFrame implements Tool,
 
     public void action() {
         this.isBeingUsedAsATool = true;
-        dialog = new JDialog(Globals.getGui(), this.title);
+        // dialog = new JDialog(Globals.getGui(), this.title);
         // assure the dialog goes away if user clicks the X
         dialog.addWindowListener(
                 new WindowAdapter() {
@@ -210,7 +210,7 @@ public abstract class AbstractToolAndApplication extends JFrame implements Tool,
         initializePostGUI();
         dialog.setContentPane(contentPane);
         dialog.pack();
-        dialog.setLocationRelativeTo(Globals.getGui());
+        // dialog.setLocationRelativeTo(Globals.getGui());
         dialog.setVisible(true);
     }
 

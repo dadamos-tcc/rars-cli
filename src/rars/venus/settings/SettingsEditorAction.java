@@ -67,7 +67,7 @@ public class SettingsEditorAction extends GuiAction {
      * editor settings.
      */
     public void actionPerformed(ActionEvent e) {
-        editorDialog = new EditorFontDialog(Globals.getGui(), "Text Editor Settings", true, Globals.getSettings().getEditorFont());
+        // editorDialog = new EditorFontDialog(Globals.getGui(), "Text Editor Settings", true, Globals.getSettings().getEditorFont());
         editorDialog.setVisible(true);
 
     }

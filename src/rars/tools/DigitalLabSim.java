@@ -118,9 +118,9 @@ public class DigitalLabSim extends AbstractToolAndApplication {
             } finally {
                 Globals.memoryAndRegistersLock.unlock();
             }
-            if (Globals.getGui() != null && Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().getCodeHighlighting()) {
-                Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateValues();
-            }
+            // if (Globals.getGui() != null && Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().getCodeHighlighting()) {
+            //     Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateValues();
+            // }
         }
     }
 

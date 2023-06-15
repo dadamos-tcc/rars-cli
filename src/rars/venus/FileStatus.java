@@ -106,7 +106,7 @@ public class FileStatus {
      */
     public static void set(int newStatus) {
         systemStatus = newStatus;
-        Globals.getGui().setMenuState(systemStatus);
+        // Globals.getGui().setMenuState(systemStatus);
     }
 
     /**

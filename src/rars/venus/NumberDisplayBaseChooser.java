@@ -80,7 +80,7 @@ public class NumberDisplayBaseChooser extends JCheckBox {
                             }
                         }
                         // Better to use notify, but I am tired...
-                        Globals.getGui().getMainPane().getExecutePane().numberDisplayBaseChanged(choose);
+                        // Globals.getGui().getMainPane().getExecutePane().numberDisplayBaseChanged(choose);
                     }
                 });
     }

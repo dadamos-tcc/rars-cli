@@ -693,9 +693,9 @@ public class KeyboardAndDisplaySimulator extends AbstractToolAndApplication {
             // but that code was not written for event-driven update (e.g. Observer) --
             // it was written to poll the memory cells for their values.  So we force it to do so.
 
-            if (Globals.getGui() != null && Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().getCodeHighlighting()) {
-                Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateValues();
-            }
+            // if (Globals.getGui() != null && Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().getCodeHighlighting()) {
+            //     Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateValues();
+            // }
         }
     }
 

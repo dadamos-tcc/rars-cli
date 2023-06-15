@@ -87,14 +87,14 @@ public class FileDumpMemoryAction extends GuiAction {
     private void dumpMemory() {
         dumpDialog = createDumpDialog();
         dumpDialog.pack();
-        dumpDialog.setLocationRelativeTo(Globals.getGui());
+        // dumpDialog.setLocationRelativeTo(Globals.getGui());
         dumpDialog.setVisible(true);
     }
 
 
     // The dump dialog that appears when menu item is selected.
     private JDialog createDumpDialog() {
-        JDialog dumpDialog = new JDialog(Globals.getGui(), title, true);
+        // JDialog dumpDialog = new JDialog(Globals.getGui(), title, true);
         dumpDialog.setContentPane(buildDialogPanel());
         dumpDialog.setDefaultCloseOperation(
                 JDialog.DO_NOTHING_ON_CLOSE);

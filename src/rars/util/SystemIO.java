@@ -99,13 +99,14 @@ public class SystemIO {
                     input = "";
             } catch (IOException e) {
             }
-        } else {
-            if (Globals.getSettings().getBooleanSetting(Settings.Bool.POPUP_SYSCALL_INPUT)) {
-                input = Globals.getGui().getMessagesPane().getInputString(prompt);
-            } else {
-                input = Globals.getGui().getMessagesPane().getInputString(maxlength);
-            }
         }
+        // else {
+        //     if (Globals.getSettings().getBooleanSetting(Settings.Bool.POPUP_SYSCALL_INPUT)) {
+        //         input = Globals.getGui().getMessagesPane().getInputString(prompt);
+        //     } else {
+        //         input = Globals.getGui().getMessagesPane().getInputString(maxlength);
+        //     }
+        // }
         return input;
     }
 
@@ -267,15 +268,15 @@ public class SystemIO {
         int retValue = -1;
         /////////////// DPS 8-Jan-2013  //////////////////////////////////////////////////
         /// Read from STDIN file descriptor while using IDE - get input from Messages pane.
-        if (fd == STDIN && Globals.getGui() != null) {
-            String input = Globals.getGui().getMessagesPane().getInputString(lengthRequested);
-            byte[] bytesRead = input.getBytes();
+        // if (fd == STDIN && Globals.getGui() != null) {
+            // String input = Globals.getGui().getMessagesPane().getInputString(lengthRequested);
+            // byte[] bytesRead = input.getBytes();
 
-            for (int i = 0; i < myBuffer.length; i++) {
-                myBuffer[i] = (i < bytesRead.length) ? bytesRead[i] : 0;
-            }
-            return Math.min(myBuffer.length, bytesRead.length);
-        }
+            // for (int i = 0; i < myBuffer.length; i++) {
+            //     myBuffer[i] = (i < bytesRead.length) ? bytesRead[i] : 0;
+            // }
+            // return Math.min(myBuffer.length, bytesRead.length);
+        // }
         ////////////////////////////////////////////////////////////////////////////////////
         //// When running in command mode, code below works for either regular file or STDIN
 
@@ -460,7 +461,7 @@ public class SystemIO {
     private static void print2Gui(String output){
         long time = System.currentTimeMillis();
         if (time > lasttime) {
-            Globals.getGui().getMessagesPane().postRunMessage(buffer+output);
+            // Globals.getGui().getMessagesPane().postRunMessage(buffer+output);
             buffer = "";
             lasttime = time + 100;
         } else {
@@ -474,7 +475,7 @@ public class SystemIO {
     public static void flush(boolean force) {
         long time = System.currentTimeMillis();
         if (buffer != "" && (force || time > lasttime)){
-            Globals.getGui().getMessagesPane().postRunMessage(buffer);
+            // Globals.getGui().getMessagesPane().postRunMessage(buffer);
             buffer = "";
             lasttime = time + 100;
         }

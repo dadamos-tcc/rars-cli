@@ -97,9 +97,9 @@ public class RunStepAction extends GuiAction {
     // When step is completed, control returns here (from execution thread, indirectly)
     // to update the GUI.
     public void stepped(boolean done, Simulator.Reason reason, SimulationException pe) {
-        executePane.getRegistersWindow().updateRegisters();
-        executePane.getFloatingPointWindow().updateRegisters();
-        executePane.getControlAndStatusWindow().updateRegisters();
+        // executePane.getRegistersWindow().updateRegisters();
+        // executePane.getFloatingPointWindow().updateRegisters();
+        // executePane.getControlAndStatusWindow().updateRegisters();
         executePane.getDataSegmentWindow().updateValues();
         if (!done) {
             executePane.getTextSegmentWindow().highlightStepAtPC();

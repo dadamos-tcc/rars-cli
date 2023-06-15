@@ -391,10 +391,10 @@ public class VenusUI extends JFrame {
             };
             runResetAction = new RunResetAction("Reset", loadIcon("Reset22.png"), "Reset memory and registers",
                     KeyEvent.VK_R, KeyStroke.getKeyStroke(KeyEvent.VK_F12, 0), mainUI);
-            runClearBreakpointsAction = new RunClearBreakpointsAction("Clear all breakpoints", null,
-                    "Clears all execution breakpoints set since the last assemble.", KeyEvent.VK_K,
-                    makeShortcut(KeyEvent.VK_K)
-            );
+            // runClearBreakpointsAction = new RunClearBreakpointsAction("Clear all breakpoints", null,
+            //         "Clears all execution breakpoints set since the last assemble.", KeyEvent.VK_K,
+            //         makeShortcut(KeyEvent.VK_K)
+            // );
             runToggleBreakpointsAction = new GuiAction("Toggle all breakpoints", null,
                     "Disable/enable all breakpoints without clearing (can also click Bkpt column header)",
                     KeyEvent.VK_T, makeShortcut(KeyEvent.VK_T)) {
@@ -469,8 +469,8 @@ public class VenusUI extends JFrame {
                 public void handler(boolean value) {
                     InstructionSet.rv64 = value;
                     Globals.instructionSet.populate();
-                    registersTab.updateRegisters();
-                    csrTab.updateRegisters();
+                    // registersTab.updateRegisters();
+                    // csrTab.updateRegisters();
                 }
             };
             settingsDeriveCurrentWorkingDirectoryAction = new SettingsAction("Derive current working directory",

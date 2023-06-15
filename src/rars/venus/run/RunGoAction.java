@@ -138,9 +138,9 @@ public class RunGoAction extends GuiAction {
         mainUI.getMessagesPane().selectMessageTab();
         executePane.getTextSegmentWindow().setCodeHighlighting(true);
         executePane.getTextSegmentWindow().highlightStepAtPC();
-        executePane.getRegistersWindow().updateRegisters();
-        executePane.getFloatingPointWindow().updateRegisters();
-        executePane.getControlAndStatusWindow().updateRegisters();
+        // executePane.getRegistersWindow().updateRegisters();
+        // executePane.getFloatingPointWindow().updateRegisters();
+        // executePane.getControlAndStatusWindow().updateRegisters();
         executePane.getDataSegmentWindow().updateValues();
         FileStatus.set(FileStatus.RUNNABLE);
         mainUI.setReset(false);
@@ -155,9 +155,9 @@ public class RunGoAction extends GuiAction {
 
     public void stopped(SimulationException pe, Simulator.Reason reason) {
         // show final register and data segment values.
-        executePane.getRegistersWindow().updateRegisters();
-        executePane.getFloatingPointWindow().updateRegisters();
-        executePane.getControlAndStatusWindow().updateRegisters();
+        // executePane.getRegistersWindow().updateRegisters();
+        // executePane.getFloatingPointWindow().updateRegisters();
+        // executePane.getControlAndStatusWindow().updateRegisters();
         executePane.getDataSegmentWindow().updateValues();
         FileStatus.set(FileStatus.TERMINATED);
         SystemIO.resetFiles(); // close any files opened in MIPS program

@@ -235,25 +235,25 @@ public class MessagesPane extends JTabbedPane {
      * @param column   Column number for error message
      */
     public void selectEditorTextLine(String fileName, int line, int column) {
-        EditTabbedPane editTabbedPane = (EditTabbedPane) Globals.getGui().getMainPane().getEditTabbedPane();
+        // EditTabbedPane editTabbedPane = (EditTabbedPane) Globals.getGui().getMainPane().getEditTabbedPane();
         EditPane editPane, currentPane = null;
-        editPane = editTabbedPane.getEditPaneForFile(new java.io.File(fileName).getPath());
-        if (editPane != null) {
-            if (editPane != editTabbedPane.getCurrentEditTab()) {
-                editTabbedPane.setCurrentEditTab(editPane);
-            }
-            currentPane = editPane;
-        } else {    // file is not open.  Try to open it.
-            if (editTabbedPane.openFile(new java.io.File(fileName))) {
-                currentPane = editTabbedPane.getCurrentEditTab();
-            }
-        }
+        // editPane = editTabbedPane.getEditPaneForFile(new java.io.File(fileName).getPath());
+        // if (editPane != null) {
+        //     if (editPane != editTabbedPane.getCurrentEditTab()) {
+        //         editTabbedPane.setCurrentEditTab(editPane);
+        //     }
+        //     currentPane = editPane;
+        // } else {    // file is not open.  Try to open it.
+        //     if (editTabbedPane.openFile(new java.io.File(fileName))) {
+        //         currentPane = editTabbedPane.getCurrentEditTab();
+        //     }
+        // }
         // If editPane == null, it means the desired file was not open.  Line selection
         // does not properly with the JEditTextArea editor in this situation (it works
         // fine for the original generic editor).  So we just won't do it. DPS 9-Aug-2010
-        if (editPane != null && currentPane != null) {
-            currentPane.selectLine(line, column);
-        }
+        // if (editPane != null && currentPane != null) {
+        //     currentPane.selectLine(line, column);
+        // }
     }
 
     /**
@@ -362,8 +362,8 @@ public class MessagesPane extends JTabbedPane {
         }
         JOptionPane pane = new JOptionPane(prompt, JOptionPane.QUESTION_MESSAGE, JOptionPane.DEFAULT_OPTION);
         pane.setWantsInput(true);
-        JDialog dialog = pane.createDialog(Globals.getGui(), "Keyboard Input");
-        dialog.setVisible(true);
+        // JDialog dialog = pane.createDialog(Globals.getGui(), "Keyboard Input");
+        // dialog.setVisible(true);
         input = (String) pane.getInputValue();
         this.postRunMessage(Globals.userInputAlert + input + "\n");
         if (lock) {

@@ -457,7 +457,7 @@ public class EditTabbedPane extends JTabbedPane {
         if (editPane == null) {
             FileStatus.set(FileStatus.NO_FILE);
             this.editor.setTitle("", "", FileStatus.NO_FILE);
-            Globals.getGui().setMenuState(FileStatus.NO_FILE);
+            // Globals.getGui().setMenuState(FileStatus.NO_FILE);
         } else {
             FileStatus.set(editPane.getFileStatus());
             updateTitlesAndMenuState(editPane);
@@ -473,7 +473,7 @@ public class EditTabbedPane extends JTabbedPane {
     private void updateTitlesAndMenuState(EditPane editPane) {
         editor.setTitle(editPane.getPathname(), editPane.getFilename(), editPane.getFileStatus());
         editPane.updateStaticFileStatus(); //  for legacy code that depends on the static FileStatus (pre 4.0)
-        Globals.getGui().setMenuState(editPane.getFileStatus());
+        // Globals.getGui().setMenuState(editPane.getFileStatus());
     }
 
     // Handy little utility to update the title on the current tab and the frame title bar

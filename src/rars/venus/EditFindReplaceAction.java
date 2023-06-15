@@ -56,7 +56,7 @@ public class EditFindReplaceAction extends GuiAction {
     }
 
     public void actionPerformed(ActionEvent e) {
-        findReplaceDialog = new FindReplaceDialog(Globals.getGui(), DIALOG_TITLE, false);
+        // findReplaceDialog = new FindReplaceDialog(Globals.getGui(), DIALOG_TITLE, false);
         findReplaceDialog.setVisible(true);
     }
 

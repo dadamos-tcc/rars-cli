@@ -122,7 +122,7 @@ public class SettingsHighlightingAction extends GuiAction {
      * editor settings.
      */
     public void actionPerformed(ActionEvent e) {
-        highlightDialog = new JDialog(Globals.getGui(), "Runtime Table Highlighting Colors and Fonts", true);
+        // highlightDialog = new JDialog(Globals.getGui(), "Runtime Table Highlighting Colors and Fonts", true);
         highlightDialog.setContentPane(buildDialogPanel());
         highlightDialog.setDefaultCloseOperation(
                 JDialog.DO_NOTHING_ON_CLOSE);
@@ -133,7 +133,7 @@ public class SettingsHighlightingAction extends GuiAction {
                     }
                 });
         highlightDialog.pack();
-        highlightDialog.setLocationRelativeTo(Globals.getGui());
+        // highlightDialog.setLocationRelativeTo(Globals.getGui());
         highlightDialog.setVisible(true);
     }
 
@@ -361,19 +361,19 @@ public class SettingsHighlightingAction extends GuiAction {
         }
         settings.setBooleanSetting(Settings.Bool.DATA_SEGMENT_HIGHLIGHTING, currentDataHighlightSetting);
         settings.setBooleanSetting(Settings.Bool.REGISTERS_HIGHLIGHTING, currentRegisterHighlightSetting);
-        ExecutePane executePane = Globals.getGui().getMainPane().getExecutePane();
-        executePane.getRegistersWindow().refresh();
-        executePane.getControlAndStatusWindow().refresh();
-        executePane.getFloatingPointWindow().refresh();
+        // ExecutePane executePane = Globals.getGui().getMainPane().getExecutePane();
+        // executePane.getRegistersWindow().refresh();
+        // executePane.getControlAndStatusWindow().refresh();
+        // executePane.getFloatingPointWindow().refresh();
         // If a successful assembly has occured, the various panes will be populated with tables
         // and we want to apply the new settings.  If it has NOT occurred, there are no tables
         // in the Data and Text segment windows so we don't want to disturb them.
         // In the latter case, the component count for the Text segment window is 0 (but is 1
         // for Data segment window).
-        if (executePane.getTextSegmentWindow().getContentPane().getComponentCount() > 0) {
-            executePane.getDataSegmentWindow().updateValues();
-            executePane.getTextSegmentWindow().highlightStepAtPC();
-        }
+        // if (executePane.getTextSegmentWindow().getContentPane().getComponentCount() > 0) {
+        //     executePane.getDataSegmentWindow().updateValues();
+        //     executePane.getTextSegmentWindow().highlightStepAtPC();
+        // }
     }
 
     // Called when Reset selected.

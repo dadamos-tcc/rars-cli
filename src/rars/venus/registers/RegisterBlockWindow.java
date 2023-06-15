@@ -125,7 +125,7 @@ public abstract class RegisterBlockWindow extends JPanel implements Observer {
     public void clearWindow() {
         clearHighlighting();
         resetRegisters();
-        updateRegisters();
+        // updateRegisters();
     }
     /**
      * Clear highlight background color from any row currently highlighted.
@@ -149,12 +149,12 @@ public abstract class RegisterBlockWindow extends JPanel implements Observer {
     /**
      * Update register display using specified display base
      */
-    public void updateRegisters() {
-        for (int i = 0; i < registers.length; i++) {
-            ((RegTableModel) table.getModel()).setDisplayAndModelValueAt(formatRegister(registers[i],
-                    Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase()), i, 2);
-        }
-    }
+    // public void updateRegisters() {
+    //     for (int i = 0; i < registers.length; i++) {
+    //         ((RegTableModel) table.getModel()).setDisplayAndModelValueAt(formatRegister(registers[i],
+    //                 Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase()), i, 2);
+    //     }
+    // }
 
     /**
      * Highlight the row corresponding to the given register.
@@ -207,7 +207,7 @@ public abstract class RegisterBlockWindow extends JPanel implements Observer {
                 // AddressCellRenderer class in DataSegmentWindow.java.
                 this.highlighting = true;
                 this.highlightCellForRegister((Register) observable);
-                Globals.getGui().getRegistersPane().setSelectedComponent(this);
+                // Globals.getGui().getRegistersPane().setSelectedComponent(this);
             }
         }
     }
@@ -332,8 +332,8 @@ public abstract class RegisterBlockWindow extends JPanel implements Observer {
             } finally {
                 Globals.memoryAndRegistersLock.unlock();
             }
-            int valueBase = Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase();
-            data[row][col] = NumberDisplayBaseChooser.formatNumber(val, valueBase);
+            // int valueBase = Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase();
+            // data[row][col] = NumberDisplayBaseChooser.formatNumber(val, valueBase);
             fireTableCellUpdated(row, col);
         }
 

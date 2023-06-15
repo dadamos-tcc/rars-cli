@@ -253,9 +253,9 @@ public class ExecutePane extends JDesktopPane {
     public void numberDisplayBaseChanged(NumberDisplayBaseChooser chooser) {
         if (chooser == valueDisplayBase) {
             // Have all internal windows update their value columns
-            registerValues.updateRegisters();
-            fpRegValues.updateRegisters();
-            csrValues.updateRegisters();
+            // registerValues.updateRegisters();
+            // fpRegValues.updateRegisters();
+            // csrValues.updateRegisters();
             dataSegment.updateValues();
             textSegment.updateBasicStatements();
         } else { // addressDisplayBase

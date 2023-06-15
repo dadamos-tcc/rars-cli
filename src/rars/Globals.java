@@ -5,7 +5,7 @@ import rars.riscv.hardware.Memory;
 import rars.riscv.InstructionSet;
 import rars.riscv.SyscallNumberOverride;
 import rars.util.PropertiesFile;
-import rars.venus.VenusUI;
+// import rars.venus.VenusUI;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -96,7 +96,8 @@ public class Globals {
     /* Flag that indicates whether or not instructionSet has been initialized. */
     private static boolean initialized = false;
     /* The GUI being used (if any) with this simulator. */
-    static VenusUI gui = null;
+    // static VenusUI gui = null;
+    static Object gui = null;
     /**
      * The current version number. Can't wait for "initialize()" call to get it.
      */
@@ -148,11 +149,13 @@ public class Globals {
         return "Pete Sanderson and Kenneth Vollmar";
     }
 
-    public static void setGui(VenusUI g) {
+    // public static void setGui(VenusUI g) {
+    public static void setGui(Object g) {
         gui = g;
     }
 
-    public static VenusUI getGui() {
+    // public static VenusUI getGui() {
+    public static Object getGui() {
         return gui;
     }
 

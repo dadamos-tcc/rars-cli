@@ -84,9 +84,9 @@ public class Simulator extends Observable {
 
     private Simulator() {
         simulatorThread = null;
-        if (Globals.getGui() != null) {
-            interactiveGUIUpdater = new UpdateGUI();
-        }
+        // if (Globals.getGui() != null) {
+        //     interactiveGUIUpdater = new UpdateGUI();
+        // }
     }
 
     /**
@@ -572,17 +572,17 @@ public class Simulator extends Observable {
         }
     }
 
-    private class UpdateGUI implements Runnable {
-        public void run() {
-            if (Globals.getGui().getRegistersPane().getSelectedComponent() ==
-                    Globals.getGui().getMainPane().getExecutePane().getRegistersWindow()) {
-                Globals.getGui().getMainPane().getExecutePane().getRegistersWindow().updateRegisters();
-            } else {
-                Globals.getGui().getMainPane().getExecutePane().getFloatingPointWindow().updateRegisters();
-            }
-            Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateValues();
-            Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().setCodeHighlighting(true);
-            Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().highlightStepAtPC();
-        }
-    }
+    // private class UpdateGUI implements Runnable {
+    //     public void run() {
+    //         if (Globals.getGui().getRegistersPane().getSelectedComponent() ==
+    //                 Globals.getGui().getMainPane().getExecutePane().getRegistersWindow()) {
+    //             Globals.getGui().getMainPane().getExecutePane().getRegistersWindow().updateRegisters();
+    //         } else {
+    //             Globals.getGui().getMainPane().getExecutePane().getFloatingPointWindow().updateRegisters();
+    //         }
+    //         Globals.getGui().getMainPane().getExecutePane().getDataSegmentWindow().updateValues();
+    //         Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().setCodeHighlighting(true);
+    //         Globals.getGui().getMainPane().getExecutePane().getTextSegmentWindow().highlightStepAtPC();
+    //     }
+    // }
 }

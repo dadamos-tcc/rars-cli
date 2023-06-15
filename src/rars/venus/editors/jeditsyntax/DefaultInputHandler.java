@@ -187,7 +187,7 @@ public class DefaultInputHandler extends InputHandler {
                 currentBindings = bindings;
                 // No binding for this keyStroke, pass it to menu
                 // (mnemonic, accelerator).  DPS 4-may-2010
-                rars.Globals.getGui().dispatchEventToMenu(evt);
+                // rars.Globals.getGui().dispatchEventToMenu(evt);
                 evt.consume();
             } else if (o instanceof BindingAction) {
                 currentBindings = bindings;
