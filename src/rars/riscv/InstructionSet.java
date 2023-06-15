@@ -287,9 +287,9 @@ public class InstructionSet {
                     service instanceof SyscallPrintIntUnsigned ||
                     service instanceof SyscallPrintString ||
                     service instanceof SyscallWrite;
-            if (!is_writing) {
-                SystemIO.flush(true);
-            }
+            // if (!is_writing) {
+            //     SystemIO.flush(true);
+            // }
             service.simulate(statement);
             return;
         }

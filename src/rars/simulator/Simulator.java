@@ -8,7 +8,7 @@ import rars.util.Binary;
 import rars.util.SystemIO;
 // import rars.venus.run.RunSpeedPanel;
 
-import javax.swing.*;
+// import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
@@ -51,7 +51,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 public class Simulator extends Observable {
     private SimThread simulatorThread;
     private static Simulator simulator = null;  // Singleton object
-    private static Runnable interactiveGUIUpdater = null;
+    // private static Runnable interactiveGUIUpdater = null;
 
     /**
      * various reasons for simulate to end...
@@ -177,12 +177,12 @@ public class Simulator extends Observable {
     // "stop" just means it is leaving execution state; this could be triggered
     // by Stop button, by Pause button, by Step button, by runtime exception, by
     // instruction count limit, by breakpoint, or by end of simulation (truly done).
-    private void notifyObserversOfExecution(SimulatorNotice notice) {
-        this.setChanged();
-        // TODO: this is not completely threadsafe, if anything using Swing is observing
-        // This can be fixed by making a SwingObserver class that is thread-safe
-        this.notifyObservers(notice);
-    }
+    // private void notifyObserversOfExecution(SimulatorNotice notice) {
+    //     this.setChanged();
+    //     // TODO: this is not completely threadsafe, if anything using Swing is observing
+    //     // This can be fixed by making a SwingObserver class that is thread-safe
+    //     this.notifyObservers(notice);
+    // }
 
     public void interrupt() {
         if (simulatorThread == null) return;
@@ -240,7 +240,7 @@ public class Simulator extends Observable {
         private void stopExecution(boolean done, Reason reason) {
             this.done = done;
             this.constructReturnReason = reason;
-            SystemIO.flush(true);
+            // SystemIO.flush(true);
             if (done) SystemIO.resetFiles(); // close any files opened in the process of simulating
             // Simulator.getInstance().notifyObserversOfExecution(new SimulatorNotice(SimulatorNotice.SIMULATOR_STOP,
             //         maxSteps, (Globals.getGui() != null || Globals.runSpeedPanelExists)?RunSpeedPanel.getInstance().getRunSpeed():RunSpeedPanel.UNLIMITED_SPEED,
@@ -387,7 +387,7 @@ public class Simulator extends Observable {
             // Volatile variable initialized false but can be set true by the main thread.
             // Used to stop or pause a running program.  See stopSimulation() above.
             while (!stop) {
-                SystemIO.flush(false);
+                // SystemIO.flush(false);
                 // Perform the RISCV instruction in synchronized block.  If external threads agree
                 // to access memory and registers only through synchronized blocks on same
                 // lock variable, then full (albeit heavy-handed) protection of memory and

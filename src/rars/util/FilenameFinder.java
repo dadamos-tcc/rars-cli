@@ -1,6 +1,6 @@
 package rars.util;
 
-import javax.swing.filechooser.FileFilter;
+// import javax.swing.filechooser.FileFilter;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -8,7 +8,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.StringTokenizer;
+// import java.util.StringTokenizer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -53,7 +53,7 @@ public class FilenameFinder {
     private static final String JAR_EXTENSION = ".jar";
     private static final String FILE_URL = "file:";
     private static final String JAR_URI_PREFIX = "jar:";
-    private static final boolean NO_DIRECTORIES = false;
+    // private static final boolean NO_DIRECTORIES = false;
     public static String MATCH_ALL_EXTENSIONS = "*";
 
     /**
@@ -117,11 +117,11 @@ public class FilenameFinder {
                         filenameList.addAll(getListFromJar(extractJarFilename(f.toString()), directoryPath, fileExtension));
                     }
                 } else {  // have array of File objects; convert to names and add to list
-                    FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
+                    // FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
                     for (File file : files) {
-                        if (filter.accept(file)) {
+                        // if (filter.accept(file)) {
                             filenameList.add(file.getName());
-                        }
+                        // }
                     }
                 }
             }
@@ -191,11 +191,11 @@ public class FilenameFinder {
         File directory = new File(directoryPath);
         if (directory.isDirectory()) {
             File[] allFiles = directory.listFiles();
-            FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
+            // FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
             for (File file : allFiles) {
-                if (filter.accept(file)) {
+                // if (filter.accept(file)) {
                     filenameList.add(file.getAbsolutePath());
-                }
+                // }
             }
         }
         return filenameList;
@@ -241,12 +241,12 @@ public class FilenameFinder {
     public static ArrayList<String> getFilenameList(ArrayList<String> nameList, String fileExtension) {
         fileExtension = checkFileExtension(fileExtension);
         ArrayList<String> filenameList = new ArrayList<>();
-        FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
+        // FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
         for (String name : nameList) {
             File file = new File(name);
-            if (filter.accept(file)) {
+            // if (filter.accept(file)) {
                 filenameList.add(file.getAbsolutePath());
-            }
+            // }
         }
         return filenameList;
     }
@@ -305,9 +305,9 @@ public class FilenameFinder {
      * @return a FileFilter object that accepts files with given extensions, and directories if so indicated.
      */
 
-    public static FileFilter getFileFilter(ArrayList<String> extensions, String description, boolean acceptDirectories) {
-        return new RarsFileFilter(extensions, description, acceptDirectories);
-    }
+    // public static FileFilter getFileFilter(ArrayList<String> extensions, String description, boolean acceptDirectories) {
+    //     return new RarsFileFilter(extensions, description, acceptDirectories);
+    // }
 
     /**
      * Get a FileFilter that will filter files based on the given filename extension.
@@ -318,11 +318,11 @@ public class FilenameFinder {
      * @return a FileFilter object that accepts files with given extensions, and directories if so indicated.
      */
 
-    public static FileFilter getFileFilter(String extension, String description, boolean acceptDirectories) {
-        ArrayList<String> extensions = new ArrayList<>();
-        extensions.add(extension);
-        return new RarsFileFilter(extensions, description, acceptDirectories);
-    }
+    // public static FileFilter getFileFilter(String extension, String description, boolean acceptDirectories) {
+    //     ArrayList<String> extensions = new ArrayList<>();
+    //     extensions.add(extension);
+    //     return new RarsFileFilter(extensions, description, acceptDirectories);
+    // }
 
     /**
      * Determine if given filename ends with given extension.
@@ -367,7 +367,7 @@ public class FilenameFinder {
     //                 work only if the JAR file was in the current working directory (as would
     //                 be the case if executed from a GUI by double-clicking the jar icon).
     private static String extractJarFilename(String path) {
-        StringTokenizer findTheJar = new StringTokenizer(path, "\\/");
+        // StringTokenizer findTheJar = new StringTokenizer(path, "\\/");
         if (path.toLowerCase().startsWith(FILE_URL)) {
             path = path.substring(FILE_URL.length());
         }
@@ -387,60 +387,60 @@ public class FilenameFinder {
     //  FileFilter subclass to be instantiated by the getFileFilter method above.
     //  This extends javax.swing.filechooser.FileFilter
 
-    private static class RarsFileFilter extends FileFilter {
+    // private static class RarsFileFilter extends FileFilter {
 
-        private ArrayList<String> extensions;
-        private String fullDescription;
-        private boolean acceptDirectories;
+    //     private ArrayList<String> extensions;
+    //     private String fullDescription;
+    //     private boolean acceptDirectories;
 
-        private RarsFileFilter(ArrayList<String> extensions, String description, boolean acceptDirectories) {
-            this.extensions = extensions;
-            this.fullDescription = buildFullDescription(description, extensions);
-            this.acceptDirectories = acceptDirectories;
-        }
+    //     private RarsFileFilter(ArrayList<String> extensions, String description, boolean acceptDirectories) {
+    //         this.extensions = extensions;
+    //         this.fullDescription = buildFullDescription(description, extensions);
+    //         this.acceptDirectories = acceptDirectories;
+    //     }
 
-        // User provides descriptive phrase to be parenthesized.
-        // We will attach it to description of the extensions.  For example, if the extensions
-        // given are s and asm and the description is "Assembler Programs" the full description
-        // generated here will be "Assembler Programs (*.s; *.asm)"
-        private String buildFullDescription(String description, ArrayList<String> extensions) {
-            String result = (description == null) ? "" : description;
-            if (extensions.size() > 0) {
-                result += "  (";
-            }
-            for (int i = 0; i < extensions.size(); i++) {
-                String extension = extensions.get(i);
-                if (extension != null && extension.length() > 0) {
-                    result += ((i == 0) ? "" : "; ") + "*" + ((extension.charAt(0) == '.') ? "" : ".") + extension;
-                }
-            }
-            if (extensions.size() > 0) {
-                result += ")";
-            }
-            return result;
-        }
+    //     // User provides descriptive phrase to be parenthesized.
+    //     // We will attach it to description of the extensions.  For example, if the extensions
+    //     // given are s and asm and the description is "Assembler Programs" the full description
+    //     // generated here will be "Assembler Programs (*.s; *.asm)"
+    //     private String buildFullDescription(String description, ArrayList<String> extensions) {
+    //         String result = (description == null) ? "" : description;
+    //         if (extensions.size() > 0) {
+    //             result += "  (";
+    //         }
+    //         for (int i = 0; i < extensions.size(); i++) {
+    //             String extension = extensions.get(i);
+    //             if (extension != null && extension.length() > 0) {
+    //                 result += ((i == 0) ? "" : "; ") + "*" + ((extension.charAt(0) == '.') ? "" : ".") + extension;
+    //             }
+    //         }
+    //         if (extensions.size() > 0) {
+    //             result += ")";
+    //         }
+    //         return result;
+    //     }
 
-        // required by the abstract superclass
-        public String getDescription() {
-            return this.fullDescription;
-        }
+    //     // required by the abstract superclass
+    //     public String getDescription() {
+    //         return this.fullDescription;
+    //     }
 
-        // required by the abstract superclass.
-        public boolean accept(File file) {
-            if (file.isDirectory()) {
-                return acceptDirectories;
-            }
-            String fileExtension = getExtension(file);
-            if (fileExtension != null) {
-                for (String ext : extensions) {
-                    String extension = checkFileExtension(ext);
-                    if (extension.equals(MATCH_ALL_EXTENSIONS) ||
-                            fileExtension.equals(extension)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-    }
+    //     // required by the abstract superclass.
+    //     public boolean accept(File file) {
+    //         if (file.isDirectory()) {
+    //             return acceptDirectories;
+    //         }
+    //         String fileExtension = getExtension(file);
+    //         if (fileExtension != null) {
+    //             for (String ext : extensions) {
+    //                 String extension = checkFileExtension(ext);
+    //                 if (extension.equals(MATCH_ALL_EXTENSIONS) ||
+    //                         fileExtension.equals(extension)) {
+    //                     return true;
+    //                 }
+    //             }
+    //         }
+    //         return false;
+    //     }
+    // }
 }

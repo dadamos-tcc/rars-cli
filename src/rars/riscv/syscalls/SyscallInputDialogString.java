@@ -7,7 +7,7 @@ import rars.riscv.hardware.AddressErrorException;
 import rars.riscv.hardware.RegisterFile;
 import rars.riscv.AbstractSyscall;
 
-import javax.swing.*;
+// import javax.swing.*;
 import java.nio.charset.StandardCharsets;
 
 /*
@@ -70,7 +70,7 @@ public class SyscallInputDialogString extends AbstractSyscall {
         // An empty string returned (that is, inputString.length() of zero)
         // means that OK was chosen but no string was input.
         String inputString = null;
-        inputString = JOptionPane.showInputDialog(message);
+        // inputString = JOptionPane.showInputDialog(message);
         int byteAddress = RegisterFile.getValue("a1"); // byteAddress of string is in a1
         int maxLength = RegisterFile.getValue("a2"); // input buffer size for input string is in a2
 

@@ -6,7 +6,7 @@ import rars.riscv.hardware.FloatingPointRegisterFile;
 import rars.riscv.hardware.RegisterFile;
 import rars.riscv.AbstractSyscall;
 
-import javax.swing.*;
+// import javax.swing.*;
 
 /*
 Copyright (c) 2003-2008,  Pete Sanderson and Kenneth Vollmar
@@ -62,7 +62,7 @@ public class SyscallInputDialogFloat extends AbstractSyscall {
         // An empty string returned (that is, inputValue.length() of zero)
         // means that OK was chosen but no string was input.
         String inputValue = null;
-        inputValue = JOptionPane.showInputDialog(message);
+        // inputValue = JOptionPane.showInputDialog(message);
 
         try {
             FloatingPointRegisterFile.setRegisterToFloat(0, (float) 0.0);  // set f0 to zero

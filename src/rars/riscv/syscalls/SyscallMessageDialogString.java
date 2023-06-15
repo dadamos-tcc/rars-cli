@@ -4,7 +4,7 @@ import rars.ExitingException;
 import rars.ProgramStatement;
 import rars.riscv.AbstractSyscall;
 
-import javax.swing.*;
+// import javax.swing.*;
 
 /*
 Copyright (c) 2003-2008,  Pete Sanderson and Kenneth Vollmar
@@ -43,9 +43,9 @@ public class SyscallMessageDialogString extends AbstractSyscall {
 
     public void simulate(ProgramStatement statement) throws ExitingException {
         // Display the dialog.
-        JOptionPane.showMessageDialog(null,
-                NullString.get(statement) + NullString.get(statement, "a1"),
-                null,
-                JOptionPane.INFORMATION_MESSAGE);
+        // JOptionPane.showMessageDialog(null,
+        //         NullString.get(statement) + NullString.get(statement, "a1"),
+        //         null,
+        //         JOptionPane.INFORMATION_MESSAGE);
     }
 }

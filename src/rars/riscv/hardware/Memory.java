@@ -5,7 +5,7 @@ import rars.ProgramStatement;
 import rars.Settings;
 import rars.SimulationException;
 import rars.riscv.Instruction;
-import rars.util.Binary;
+// import rars.util.Binary;
 
 import java.util.Collection;
 import java.util.Observable;

@@ -5,7 +5,7 @@ import rars.ProgramStatement;
 import rars.riscv.AbstractSyscall;
 import rars.riscv.hardware.RegisterFile;
 
-import javax.swing.*;
+// import javax.swing.*;
 
 /*
 Copyright (c) 2003-2008,  Pete Sanderson and Kenneth Vollmar
@@ -48,6 +48,6 @@ public class SyscallMessageDialog extends AbstractSyscall {
         int msgType = RegisterFile.getValue("a1");
         if (msgType < 0 || msgType > 3)
             msgType = -1; // See values in http://java.sun.com/j2se/1.5.0/docs/api/constant-values.html
-        JOptionPane.showMessageDialog(null, NullString.get(statement), null, msgType);
+        // JOptionPane.showMessageDialog(null, NullString.get(statement), null, msgType);
     }
 }

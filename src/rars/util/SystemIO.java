@@ -5,7 +5,7 @@ import rars.Settings;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
-import java.nio.charset.StandardCharsets;
+// import java.nio.charset.StandardCharsets;
 
 	/*
 Copyright (c) 2003-2013,  Pete Sanderson and Kenneth Vollmar
@@ -146,9 +146,10 @@ public class SystemIO {
                 SystemIO.getOutputWriter().flush();
             } catch (IOException e){
             }
-        } else {
-            print2Gui(string);
         }
+        // else {
+        //     print2Gui(string);
+        // }
     }
 
 
@@ -211,11 +212,11 @@ public class SystemIO {
     public static int writeToFile(int fd, byte[] myBuffer, int lengthRequested) {
         /////////////// DPS 8-Jan-2013  ////////////////////////////////////////////////////
         /// Write to STDOUT or STDERR file descriptor while using IDE - write to Messages pane.
-        if ((fd == STDOUT || fd == STDERR) && Globals.getGui() != null) {
-            String data = new String(myBuffer, StandardCharsets.UTF_8); //decode the bytes using UTF-8 charset
-            print2Gui(data);
-            return myBuffer.length; // data.length would not count multi-byte characters
-        }
+        // if ((fd == STDOUT || fd == STDERR) && Globals.getGui() != null) {
+        //     String data = new String(myBuffer, StandardCharsets.UTF_8); //decode the bytes using UTF-8 charset
+        //     print2Gui(data);
+        //     return myBuffer.length; // data.length would not count multi-byte characters
+        // }
         ///////////////////////////////////////////////////////////////////////////////////
         //// When running in command mode, code below works for either regular file or STDOUT/STDERR
 
@@ -456,30 +457,30 @@ public class SystemIO {
 
     // The GUI doesn't handle lots of small messages well so I added this hacky way of buffering
     // Currently it checks to flush every instruction run
-    private static String buffer = "";
-    private static long lasttime = 0;
-    private static void print2Gui(String output){
-        long time = System.currentTimeMillis();
-        if (time > lasttime) {
-            // Globals.getGui().getMessagesPane().postRunMessage(buffer+output);
-            buffer = "";
-            lasttime = time + 100;
-        } else {
-            buffer += output;
-        }
-    }
+    // private static String buffer = "";
+    // private static long lasttime = 0;
+    // private static void print2Gui(String output){
+    //     long time = System.currentTimeMillis();
+    //     if (time > lasttime) {
+    //         Globals.getGui().getMessagesPane().postRunMessage(buffer+output);
+    //         buffer = "";
+    //         lasttime = time + 100;
+    //     } else {
+    //         buffer += output;
+    //     }
+    // }
     /**
      * Flush stdout cache
      * Makes sure that messages don't get stuck in the print2Gui buffer for too long.
      */
-    public static void flush(boolean force) {
-        long time = System.currentTimeMillis();
-        if (buffer != "" && (force || time > lasttime)){
-            // Globals.getGui().getMessagesPane().postRunMessage(buffer);
-            buffer = "";
-            lasttime = time + 100;
-        }
-    }
+    // public static void flush(boolean force) {
+    //     long time = System.currentTimeMillis();
+    //     if (buffer != "" && (force || time > lasttime)){
+    //         // Globals.getGui().getMessagesPane().postRunMessage(buffer);
+    //         buffer = "";
+    //         lasttime = time + 100;
+    //     }
+    // }
 
     public static Data swapData(Data in){
         Data temp = new Data(false);

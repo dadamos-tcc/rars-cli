@@ -5,7 +5,7 @@ import rars.riscv.InstructionSet;
 import rars.riscv.dump.DumpFormat;
 import rars.riscv.dump.DumpFormatLoader;
 import rars.riscv.hardware.*;
-import rars.simulator.ProgramArgumentList;
+// import rars.simulator.ProgramArgumentList;
 import rars.simulator.Simulator;
 import rars.util.Binary;
 import rars.util.FilenameFinder;
@@ -13,15 +13,15 @@ import rars.util.MemoryDump;
 // import rars.venus.VenusUI;
 import rars.api.Options;
 
-import javax.swing.*;
+// import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Observable;
-import java.util.Observer;
+// import java.util.Observable;
+// import java.util.Observer;
 
 /*
 Copyright (c) 2003-2012,  Pete Sanderson and Kenneth Vollmar

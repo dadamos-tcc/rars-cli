@@ -5,7 +5,7 @@ import rars.ProgramStatement;
 import rars.riscv.hardware.RegisterFile;
 import rars.riscv.AbstractSyscall;
 
-import javax.swing.*;
+// import javax.swing.*;
 
 /*
 Copyright (c) 2003-2008,  Pete Sanderson and Kenneth Vollmar
@@ -61,7 +61,7 @@ public class SyscallInputDialogInt extends AbstractSyscall {
         // An empty string returned (that is, inputValue.length() of zero)
         // means that OK was chosen but no string was input.
         String inputValue = null;
-        inputValue = JOptionPane.showInputDialog(message);
+        // inputValue = JOptionPane.showInputDialog(message);
         if (inputValue == null)  // Cancel was chosen
         {
             RegisterFile.updateRegister("a0", 0);
