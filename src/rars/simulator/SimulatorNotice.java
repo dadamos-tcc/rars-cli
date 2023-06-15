@@ -29,7 +29,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 import rars.SimulationException;
-import rars.venus.run.RunSpeedPanel;
+// import rars.venus.run.RunSpeedPanel;
 
 /**
  * Object provided to Observers of the Simulator.
@@ -99,7 +99,7 @@ public class SimulatorNotice {
     public String toString() {
         return ((this.getAction() == SIMULATOR_START) ? "START " : "STOP  ") +
                 "Max Steps " + this.maxSteps + " " +
-                "Speed " + ((this.runSpeed == RunSpeedPanel.UNLIMITED_SPEED) ? "unlimited " : "" + this.runSpeed + " inst/sec") +
+                // "Speed " + ((this.runSpeed == RunSpeedPanel.UNLIMITED_SPEED) ? "unlimited " : "" + this.runSpeed + " inst/sec") +
                 "Prog Ctr " + this.programCounter;
     }
 }

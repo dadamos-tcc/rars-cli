@@ -8,7 +8,7 @@ import rars.riscv.hardware.*;
 import rars.simulator.Simulator;
 import rars.simulator.SimulatorNotice;
 import rars.util.FilenameFinder;
-import rars.venus.run.RunSpeedPanel;
+// import rars.venus.run.RunSpeedPanel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -379,7 +379,7 @@ public abstract class AbstractToolAndApplication extends JFrame implements Tool,
         operationStatusMessages.setFocusable(false);
         operationStatusMessages.setToolTipText("Display operation status messages");
 
-        RunSpeedPanel speed = RunSpeedPanel.getInstance();
+        // RunSpeedPanel speed = RunSpeedPanel.getInstance();
 
         // Bottom row of controls consists of the three buttons defined here.
         assembleRunButton = new JButton("Assemble and Run");
@@ -438,7 +438,7 @@ public abstract class AbstractToolAndApplication extends JFrame implements Tool,
         fileControlArea.add(fileDisplayBox);
 
         fileControlArea.add(Box.createHorizontalGlue());
-        fileControlArea.add(speed);
+        // fileControlArea.add(speed);
 
         // Add bottom row of buttons...
 

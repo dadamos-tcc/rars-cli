@@ -3,7 +3,7 @@ package rars.tools;
 import rars.Globals;
 import rars.riscv.hardware.*;
 import rars.util.Binary;
-import rars.venus.util.AbstractFontSettingDialog;
+// import rars.venus.util.AbstractFontSettingDialog;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -630,7 +630,7 @@ public class KeyboardAndDisplaySimulator extends AbstractToolAndApplication {
         //font button to display font
         fontButton = new JButton("Font");
         fontButton.setToolTipText("Select the font for the display panel");
-        fontButton.addActionListener(new FontChanger());
+        // fontButton.addActionListener(new FontChanger());
         displayOptions.add(fontButton);
         displayOptions.add(displayAfterDelayCheckBox);
         displayOptions.add(delayTechniqueChooser);
@@ -909,81 +909,81 @@ public class KeyboardAndDisplaySimulator extends AbstractToolAndApplication {
      * class.
      */
 
-    private class FontSettingDialog extends AbstractFontSettingDialog {
-        private boolean resultOK;
+    // private class FontSettingDialog extends AbstractFontSettingDialog {
+    //     private boolean resultOK;
 
-        public FontSettingDialog(Frame owner, String title, Font currentFont) {
-            super(owner, title, true, currentFont);
-        }
+    //     public FontSettingDialog(Frame owner, String title, Font currentFont) {
+    //         super(owner, title, true, currentFont);
+    //     }
 
-        private Font showDialog() {
-            resultOK = true;
-            // Because dialog is modal, this blocks until user terminates the dialog.
-            this.setVisible(true);
-            return resultOK ? getFont() : null;
-        }
+    //     private Font showDialog() {
+    //         resultOK = true;
+    //         // Because dialog is modal, this blocks until user terminates the dialog.
+    //         this.setVisible(true);
+    //         return resultOK ? getFont() : null;
+    //     }
 
-        protected void closeDialog() {
-            this.setVisible(false);
-            // Update display text dimensions based on current font and size. DPS 22-July-2014
-            updateDisplayBorder.componentResized(null);
-        }
+    //     protected void closeDialog() {
+    //         this.setVisible(false);
+    //         // Update display text dimensions based on current font and size. DPS 22-July-2014
+    //         updateDisplayBorder.componentResized(null);
+    //     }
 
-        private void performCancel() {
-            resultOK = false;
-        }
+    //     private void performCancel() {
+    //         resultOK = false;
+    //     }
 
-        // Control buttons for the dialog.
-        protected Component buildControlPanel() {
-            Box controlPanel = Box.createHorizontalBox();
-            JButton okButton = new JButton("OK");
-            okButton.addActionListener(
-                    new ActionListener() {
-                        public void actionPerformed(ActionEvent e) {
-                            apply(getFont());
-                            closeDialog();
-                        }
-                    });
-            JButton cancelButton = new JButton("Cancel");
-            cancelButton.addActionListener(
-                    new ActionListener() {
-                        public void actionPerformed(ActionEvent e) {
-                            performCancel();
-                            closeDialog();
-                        }
-                    });
-            JButton resetButton = new JButton("Reset");
-            resetButton.addActionListener(
-                    new ActionListener() {
-                        public void actionPerformed(ActionEvent e) {
-                            reset();
-                        }
-                    });
-            controlPanel.add(Box.createHorizontalGlue());
-            controlPanel.add(okButton);
-            controlPanel.add(Box.createHorizontalGlue());
-            controlPanel.add(cancelButton);
-            controlPanel.add(Box.createHorizontalGlue());
-            controlPanel.add(resetButton);
-            controlPanel.add(Box.createHorizontalGlue());
-            return controlPanel;
-        }
+    //     // Control buttons for the dialog.
+    //     protected Component buildControlPanel() {
+    //         Box controlPanel = Box.createHorizontalBox();
+    //         JButton okButton = new JButton("OK");
+    //         okButton.addActionListener(
+    //                 new ActionListener() {
+    //                     public void actionPerformed(ActionEvent e) {
+    //                         apply(getFont());
+    //                         closeDialog();
+    //                     }
+    //                 });
+    //         JButton cancelButton = new JButton("Cancel");
+    //         cancelButton.addActionListener(
+    //                 new ActionListener() {
+    //                     public void actionPerformed(ActionEvent e) {
+    //                         performCancel();
+    //                         closeDialog();
+    //                     }
+    //                 });
+    //         JButton resetButton = new JButton("Reset");
+    //         resetButton.addActionListener(
+    //                 new ActionListener() {
+    //                     public void actionPerformed(ActionEvent e) {
+    //                         reset();
+    //                     }
+    //                 });
+    //         controlPanel.add(Box.createHorizontalGlue());
+    //         controlPanel.add(okButton);
+    //         controlPanel.add(Box.createHorizontalGlue());
+    //         controlPanel.add(cancelButton);
+    //         controlPanel.add(Box.createHorizontalGlue());
+    //         controlPanel.add(resetButton);
+    //         controlPanel.add(Box.createHorizontalGlue());
+    //         return controlPanel;
+    //     }
 
-        // Change the font for the keyboard and display
-        protected void apply(Font font) {
-            display.setFont(font);
-            keyEventAccepter.setFont(font);
-        }
+    //     // Change the font for the keyboard and display
+    //     protected void apply(Font font) {
+    //         display.setFont(font);
+    //         keyEventAccepter.setFont(font);
+    //     }
 
-    }
+    // }
 
-    private class FontChanger implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            JButton button = (JButton) e.getSource();
-            FontSettingDialog fontDialog = new FontSettingDialog(null, "Select Text Font", display.getFont());
-            Font newFont = fontDialog.showDialog();
-        }
-    }
+    // private class FontChanger implements ActionListener {
+    //     public void actionPerformed(ActionEvent e) {
+    //         JButton button = (JButton) e.getSource();
+    //         FontSettingDialog fontDialog = new FontSettingDialog(null, "Select Text Font", display.getFont());
+    //         Font newFont = fontDialog.showDialog();
+    //     }
+    // }
 
 
 }

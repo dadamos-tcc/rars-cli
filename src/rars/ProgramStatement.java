@@ -12,7 +12,7 @@ import rars.riscv.BasicInstruction;
 import rars.riscv.BasicInstructionFormat;
 import rars.riscv.Instruction;
 import rars.util.Binary;
-import rars.venus.NumberDisplayBaseChooser;
+// import rars.venus.NumberDisplayBaseChooser;
 
 import java.util.ArrayList;
 
@@ -832,8 +832,8 @@ public class ProgramStatement implements Comparable<ProgramStatement> {
         }
 
         public String toString() {
-            int addressBase = (Globals.getSettings().getBooleanSetting(Settings.Bool.DISPLAY_ADDRESSES_IN_HEX)) ? NumberDisplayBaseChooser.HEXADECIMAL : NumberDisplayBaseChooser.DECIMAL;
-            int valueBase = (Globals.getSettings().getBooleanSetting(Settings.Bool.DISPLAY_VALUES_IN_HEX)) ? NumberDisplayBaseChooser.HEXADECIMAL : NumberDisplayBaseChooser.DECIMAL;
+            // int addressBase = (Globals.getSettings().getBooleanSetting(Settings.Bool.DISPLAY_ADDRESSES_IN_HEX)) ? NumberDisplayBaseChooser.HEXADECIMAL : NumberDisplayBaseChooser.DECIMAL;
+            // int valueBase = (Globals.getSettings().getBooleanSetting(Settings.Bool.DISPLAY_VALUES_IN_HEX)) ? NumberDisplayBaseChooser.HEXADECIMAL : NumberDisplayBaseChooser.DECIMAL;
 
             StringBuffer result = new StringBuffer();
             for (ListElement e : list) {
@@ -842,14 +842,14 @@ public class ProgramStatement implements Comparable<ProgramStatement> {
                         result.append(e.sValue);
                         break;
                     case 1:
-                        result.append(NumberDisplayBaseChooser.formatNumber(e.iValue, addressBase));
+                        // result.append(NumberDisplayBaseChooser.formatNumber(e.iValue, addressBase));
                         break;
                     case 2:
-                        if (valueBase == NumberDisplayBaseChooser.HEXADECIMAL) {
-                            result.append(rars.util.Binary.intToHexString(e.iValue)); // 13-July-2011, was: intToHalfHexString()
-                        } else {
-                            result.append(NumberDisplayBaseChooser.formatNumber(e.iValue, valueBase));
-                        }
+                        // if (valueBase == NumberDisplayBaseChooser.HEXADECIMAL) {
+                        //     result.append(rars.util.Binary.intToHexString(e.iValue)); // 13-July-2011, was: intToHalfHexString()
+                        // } else {
+                        //     result.append(NumberDisplayBaseChooser.formatNumber(e.iValue, valueBase));
+                        // }
                         break;
                     case 3:
                         result.append(e.iValue);

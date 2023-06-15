@@ -2,8 +2,8 @@ package rars;
 
 import rars.util.Binary;
 import rars.util.EditorFont;
-import rars.venus.editors.jeditsyntax.SyntaxStyle;
-import rars.venus.editors.jeditsyntax.SyntaxUtilities;
+// import rars.venus.editors.jeditsyntax.SyntaxStyle;
+// import rars.venus.editors.jeditsyntax.SyntaxUtilities;
 
 import javax.swing.*;
 import java.awt.*;
@@ -454,51 +454,51 @@ public class Settings extends Observable {
     of SyntaxStyle objects.
 
     */
-    private String[] syntaxStyleColorSettingsValues;
-    private boolean[] syntaxStyleBoldSettingsValues;
-    private boolean[] syntaxStyleItalicSettingsValues;
+    // private String[] syntaxStyleColorSettingsValues;
+    // private boolean[] syntaxStyleBoldSettingsValues;
+    // private boolean[] syntaxStyleItalicSettingsValues;
 
-    private static final String SYNTAX_STYLE_COLOR_PREFIX = "SyntaxStyleColor_";
-    private static final String SYNTAX_STYLE_BOLD_PREFIX = "SyntaxStyleBold_";
-    private static final String SYNTAX_STYLE_ITALIC_PREFIX = "SyntaxStyleItalic_";
+    // private static final String SYNTAX_STYLE_COLOR_PREFIX = "SyntaxStyleColor_";
+    // private static final String SYNTAX_STYLE_BOLD_PREFIX = "SyntaxStyleBold_";
+    // private static final String SYNTAX_STYLE_ITALIC_PREFIX = "SyntaxStyleItalic_";
 
-    private static String[] syntaxStyleColorSettingsKeys, syntaxStyleBoldSettingsKeys, syntaxStyleItalicSettingsKeys;
-    private static String[] defaultSyntaxStyleColorSettingsValues;
-    private static boolean[] defaultSyntaxStyleBoldSettingsValues;
-    private static boolean[] defaultSyntaxStyleItalicSettingsValues;
+    // private static String[] syntaxStyleColorSettingsKeys, syntaxStyleBoldSettingsKeys, syntaxStyleItalicSettingsKeys;
+    // private static String[] defaultSyntaxStyleColorSettingsValues;
+    // private static boolean[] defaultSyntaxStyleBoldSettingsValues;
+    // private static boolean[] defaultSyntaxStyleItalicSettingsValues;
 
 
-    public void setEditorSyntaxStyleByPosition(int index, SyntaxStyle syntaxStyle) {
-        syntaxStyleColorSettingsValues[index] = syntaxStyle.getColorAsHexString();
-        syntaxStyleItalicSettingsValues[index] = syntaxStyle.isItalic();
-        syntaxStyleBoldSettingsValues[index] = syntaxStyle.isBold();
-        saveEditorSyntaxStyle(index);
-    }
+    // public void setEditorSyntaxStyleByPosition(int index, SyntaxStyle syntaxStyle) {
+    //     syntaxStyleColorSettingsValues[index] = syntaxStyle.getColorAsHexString();
+    //     syntaxStyleItalicSettingsValues[index] = syntaxStyle.isItalic();
+    //     syntaxStyleBoldSettingsValues[index] = syntaxStyle.isBold();
+    //     saveEditorSyntaxStyle(index);
+    // }
 
-    public SyntaxStyle getEditorSyntaxStyleByPosition(int index) {
-        return new SyntaxStyle(getColorValueByPosition(index, syntaxStyleColorSettingsValues, defaultSyntaxStyleColorSettingsValues, null),
-                syntaxStyleItalicSettingsValues[index],
-                syntaxStyleBoldSettingsValues[index]);
-    }
+    // public SyntaxStyle getEditorSyntaxStyleByPosition(int index) {
+    //     return new SyntaxStyle(getColorValueByPosition(index, syntaxStyleColorSettingsValues, defaultSyntaxStyleColorSettingsValues, null),
+    //             syntaxStyleItalicSettingsValues[index],
+    //             syntaxStyleBoldSettingsValues[index]);
+    // }
 
-    public SyntaxStyle getDefaultEditorSyntaxStyleByPosition(int index) {
-        return new SyntaxStyle(getColorValueByPosition(index, defaultSyntaxStyleColorSettingsValues, null, null),
-                defaultSyntaxStyleItalicSettingsValues[index],
-                defaultSyntaxStyleBoldSettingsValues[index]);
-    }
+    // public SyntaxStyle getDefaultEditorSyntaxStyleByPosition(int index) {
+    //     return new SyntaxStyle(getColorValueByPosition(index, defaultSyntaxStyleColorSettingsValues, null, null),
+    //             defaultSyntaxStyleItalicSettingsValues[index],
+    //             defaultSyntaxStyleBoldSettingsValues[index]);
+    // }
 
-    private void saveEditorSyntaxStyle(int index) {
-        try {
-            preferences.put(syntaxStyleColorSettingsKeys[index], syntaxStyleColorSettingsValues[index]);
-            preferences.putBoolean(syntaxStyleBoldSettingsKeys[index], syntaxStyleBoldSettingsValues[index]);
-            preferences.putBoolean(syntaxStyleItalicSettingsKeys[index], syntaxStyleItalicSettingsValues[index]);
-            preferences.flush();
-        } catch (SecurityException se) {
-            // cannot write to persistent storage for security reasons
-        } catch (BackingStoreException bse) {
-            // unable to communicate with persistent storage (strange days)
-        }
-    }
+    // private void saveEditorSyntaxStyle(int index) {
+    //     try {
+    //         preferences.put(syntaxStyleColorSettingsKeys[index], syntaxStyleColorSettingsValues[index]);
+    //         preferences.putBoolean(syntaxStyleBoldSettingsKeys[index], syntaxStyleBoldSettingsValues[index]);
+    //         preferences.putBoolean(syntaxStyleItalicSettingsKeys[index], syntaxStyleItalicSettingsValues[index]);
+    //         preferences.flush();
+    //     } catch (SecurityException se) {
+    //         // cannot write to persistent storage for security reasons
+    //     } catch (BackingStoreException bse) {
+    //         // unable to communicate with persistent storage (strange days)
+    //     }
+    // }
 
     // For syntax styles, need to initialize from SyntaxUtilities defaults.
     // Taking care not to explicitly create a Color object, since it may trigger
@@ -508,38 +508,38 @@ public class Settings extends Observable {
     // On othe other hand, the first statement of this method causes Color objects
     // to be created!  It is possible but a real pain in the rear to avoid using
     // Color objects totally.  Requires new methods for the SyntaxUtilities class.
-    private void initializeEditorSyntaxStyles() {
-        SyntaxStyle syntaxStyle[] = SyntaxUtilities.getDefaultSyntaxStyles();
-        int tokens = syntaxStyle.length;
-        syntaxStyleColorSettingsKeys = new String[tokens];
-        syntaxStyleBoldSettingsKeys = new String[tokens];
-        syntaxStyleItalicSettingsKeys = new String[tokens];
-        defaultSyntaxStyleColorSettingsValues = new String[tokens];
-        defaultSyntaxStyleBoldSettingsValues = new boolean[tokens];
-        defaultSyntaxStyleItalicSettingsValues = new boolean[tokens];
-        syntaxStyleColorSettingsValues = new String[tokens];
-        syntaxStyleBoldSettingsValues = new boolean[tokens];
-        syntaxStyleItalicSettingsValues = new boolean[tokens];
-        for (int i = 0; i < tokens; i++) {
-            syntaxStyleColorSettingsKeys[i] = SYNTAX_STYLE_COLOR_PREFIX + i;
-            syntaxStyleBoldSettingsKeys[i] = SYNTAX_STYLE_BOLD_PREFIX + i;
-            syntaxStyleItalicSettingsKeys[i] = SYNTAX_STYLE_ITALIC_PREFIX + i;
-            syntaxStyleColorSettingsValues[i] =
-                    defaultSyntaxStyleColorSettingsValues[i] = syntaxStyle[i].getColorAsHexString();
-            syntaxStyleBoldSettingsValues[i] =
-                    defaultSyntaxStyleBoldSettingsValues[i] = syntaxStyle[i].isBold();
-            syntaxStyleItalicSettingsValues[i] =
-                    defaultSyntaxStyleItalicSettingsValues[i] = syntaxStyle[i].isItalic();
-        }
-    }
+    // private void initializeEditorSyntaxStyles() {
+        // SyntaxStyle syntaxStyle[] = SyntaxUtilities.getDefaultSyntaxStyles();
+        // int tokens = syntaxStyle.length;
+        // syntaxStyleColorSettingsKeys = new String[tokens];
+        // syntaxStyleBoldSettingsKeys = new String[tokens];
+        // syntaxStyleItalicSettingsKeys = new String[tokens];
+        // defaultSyntaxStyleColorSettingsValues = new String[tokens];
+        // defaultSyntaxStyleBoldSettingsValues = new boolean[tokens];
+        // defaultSyntaxStyleItalicSettingsValues = new boolean[tokens];
+        // syntaxStyleColorSettingsValues = new String[tokens];
+        // syntaxStyleBoldSettingsValues = new boolean[tokens];
+        // syntaxStyleItalicSettingsValues = new boolean[tokens];
+        // for (int i = 0; i < tokens; i++) {
+        //     syntaxStyleColorSettingsKeys[i] = SYNTAX_STYLE_COLOR_PREFIX + i;
+        //     syntaxStyleBoldSettingsKeys[i] = SYNTAX_STYLE_BOLD_PREFIX + i;
+        //     syntaxStyleItalicSettingsKeys[i] = SYNTAX_STYLE_ITALIC_PREFIX + i;
+        //     syntaxStyleColorSettingsValues[i] =
+        //             defaultSyntaxStyleColorSettingsValues[i] = syntaxStyle[i].getColorAsHexString();
+        //     syntaxStyleBoldSettingsValues[i] =
+        //             defaultSyntaxStyleBoldSettingsValues[i] = syntaxStyle[i].isBold();
+        //     syntaxStyleItalicSettingsValues[i] =
+        //             defaultSyntaxStyleItalicSettingsValues[i] = syntaxStyle[i].isItalic();
+        // }
+    // }
 
-    private void getEditorSyntaxStyleSettingsFromPreferences() {
-        for (int i = 0; i < syntaxStyleColorSettingsKeys.length; i++) {
-            syntaxStyleColorSettingsValues[i] = preferences.get(syntaxStyleColorSettingsKeys[i], syntaxStyleColorSettingsValues[i]);
-            syntaxStyleBoldSettingsValues[i] = preferences.getBoolean(syntaxStyleBoldSettingsKeys[i], syntaxStyleBoldSettingsValues[i]);
-            syntaxStyleItalicSettingsValues[i] = preferences.getBoolean(syntaxStyleItalicSettingsKeys[i], syntaxStyleItalicSettingsValues[i]);
-        }
-    }
+    // private void getEditorSyntaxStyleSettingsFromPreferences() {
+    //     for (int i = 0; i < syntaxStyleColorSettingsKeys.length; i++) {
+    //         syntaxStyleColorSettingsValues[i] = preferences.get(syntaxStyleColorSettingsKeys[i], syntaxStyleColorSettingsValues[i]);
+    //         syntaxStyleBoldSettingsValues[i] = preferences.getBoolean(syntaxStyleBoldSettingsKeys[i], syntaxStyleBoldSettingsValues[i]);
+    //         syntaxStyleItalicSettingsValues[i] = preferences.getBoolean(syntaxStyleItalicSettingsKeys[i], syntaxStyleItalicSettingsValues[i]);
+    //     }
+    // }
     // *********************************************************************************
 
 
@@ -996,7 +996,7 @@ public class Settings extends Observable {
         for (int i = 0; i < colorSettingsValues.length; i++) {
             colorSettingsValues[i] = getDefaultColorMode().modeKey;
         }
-        initializeEditorSyntaxStyles();
+        // initializeEditorSyntaxStyles();
     }
 
     /** Takes a color from the LookAndFeel */
@@ -1225,7 +1225,7 @@ public class Settings extends Observable {
         for (int i = 0; i < colorSettingsKeys.length; i++) {
             colorSettingsValues[i] = preferences.get(colorSettingsKeys[i], colorSettingsValues[i]);
         }
-        getEditorSyntaxStyleSettingsFromPreferences();
+        // getEditorSyntaxStyleSettingsFromPreferences();
     }
 
 

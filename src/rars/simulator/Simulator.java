@@ -6,7 +6,7 @@ import rars.riscv.BasicInstruction;
 import rars.riscv.Instruction;
 import rars.util.Binary;
 import rars.util.SystemIO;
-import rars.venus.run.RunSpeedPanel;
+// import rars.venus.run.RunSpeedPanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -231,20 +231,20 @@ public class Simulator extends Observable {
             notify();
         }
 
-        private void startExecution() {
-            Simulator.getInstance().notifyObserversOfExecution(new SimulatorNotice(SimulatorNotice.SIMULATOR_START,
-                    maxSteps,(Globals.getGui() != null || Globals.runSpeedPanelExists)?RunSpeedPanel.getInstance().getRunSpeed():RunSpeedPanel.UNLIMITED_SPEED,
-                    pc, null, pe, done));
-        }
+        // private void startExecution() {
+        //     Simulator.getInstance().notifyObserversOfExecution(new SimulatorNotice(SimulatorNotice.SIMULATOR_START,
+        //             maxSteps,(Globals.getGui() != null || Globals.runSpeedPanelExists)?RunSpeedPanel.getInstance().getRunSpeed():RunSpeedPanel.UNLIMITED_SPEED,
+        //             pc, null, pe, done));
+        // }
 
         private void stopExecution(boolean done, Reason reason) {
             this.done = done;
             this.constructReturnReason = reason;
             SystemIO.flush(true);
             if (done) SystemIO.resetFiles(); // close any files opened in the process of simulating
-            Simulator.getInstance().notifyObserversOfExecution(new SimulatorNotice(SimulatorNotice.SIMULATOR_STOP,
-                    maxSteps, (Globals.getGui() != null || Globals.runSpeedPanelExists)?RunSpeedPanel.getInstance().getRunSpeed():RunSpeedPanel.UNLIMITED_SPEED,
-                    pc, reason, pe, done));
+            // Simulator.getInstance().notifyObserversOfExecution(new SimulatorNotice(SimulatorNotice.SIMULATOR_STOP,
+            //         maxSteps, (Globals.getGui() != null || Globals.runSpeedPanelExists)?RunSpeedPanel.getInstance().getRunSpeed():RunSpeedPanel.UNLIMITED_SPEED,
+            //         pc, reason, pe, done));
         }
 
         private synchronized void interrupt() {
@@ -347,7 +347,7 @@ public class Simulator extends Observable {
                 Arrays.sort(breakPoints);  // must be pre-sorted for binary search
             }
 
-            startExecution();
+            // startExecution();
 
             // *******************  PS addition 26 July 2006  **********************
             // A couple statements below were added for the purpose of assuring that when
@@ -553,20 +553,20 @@ public class Simulator extends Observable {
                 // schedule GUI update only if: there is in fact a GUI! AND
                 //                              using Run,  not Step (maxSteps != 1) AND
                 //                              running slowly enough for GUI to keep up
-                if (interactiveGUIUpdater != null && maxSteps != 1 &&
-                        RunSpeedPanel.getInstance().getRunSpeed() < RunSpeedPanel.UNLIMITED_SPEED) {
-                    SwingUtilities.invokeLater(interactiveGUIUpdater);
-                }
-                if (Globals.getGui() != null || Globals.runSpeedPanelExists) { // OR added by DPS 24 July 2008 to enable speed control by stand-alone tool
-                    if (maxSteps != 1 &&
-                            RunSpeedPanel.getInstance().getRunSpeed() < RunSpeedPanel.UNLIMITED_SPEED) {
-                        try {
-                            // TODO: potentially use this.wait so it can be interrupted
-                            Thread.sleep((int) (1000 / RunSpeedPanel.getInstance().getRunSpeed())); // make sure it's never zero!
-                        } catch (InterruptedException e) {
-                        }
-                    }
-                }
+                // if (interactiveGUIUpdater != null && maxSteps != 1 &&
+                //         RunSpeedPanel.getInstance().getRunSpeed() < RunSpeedPanel.UNLIMITED_SPEED) {
+                //     SwingUtilities.invokeLater(interactiveGUIUpdater);
+                // }
+                // if (Globals.getGui() != null || Globals.runSpeedPanelExists) { // OR added by DPS 24 July 2008 to enable speed control by stand-alone tool
+                //     if (maxSteps != 1 &&
+                //             RunSpeedPanel.getInstance().getRunSpeed() < RunSpeedPanel.UNLIMITED_SPEED) {
+                //         try {
+                //             // TODO: potentially use this.wait so it can be interrupted
+                //             Thread.sleep((int) (1000 / RunSpeedPanel.getInstance().getRunSpeed())); // make sure it's never zero!
+                //         } catch (InterruptedException e) {
+                //         }
+                //     }
+                // }
             }
             stopExecution(false, constructReturnReason);
         }

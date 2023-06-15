@@ -322,9 +322,9 @@ public class Assembler {
             if (ps1.getAddress() == ps2.getAddress()) {
                 errors.add(new ErrorMessage(ps2.getSourceProgram(), ps2.getSourceLine(), 0,
                         "Duplicate text segment address: "
-                                + rars.venus.NumberDisplayBaseChooser.formatUnsignedInteger(ps2
-                                .getAddress(), (Globals.getSettings()
-                                .getBooleanSetting(Settings.Bool.DISPLAY_ADDRESSES_IN_HEX)) ? 16 : 10)
+                                // + rars.venus.NumberDisplayBaseChooser.formatUnsignedInteger(ps2
+                                // .getAddress(), (Globals.getSettings()
+                                // .getBooleanSetting(Settings.Bool.DISPLAY_ADDRESSES_IN_HEX)) ? 16 : 10)
                                 + " already occupied by " + ps1.getSourceFile() + " line "
                                 + ps1.getSourceLine() + " (caused by use of "
                                 + ((Memory.inTextSegment(ps2.getAddress())) ? ".text" : ".ktext")
