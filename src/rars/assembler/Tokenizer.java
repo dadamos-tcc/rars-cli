@@ -272,7 +272,7 @@ public class Tokenizer {
      * @return the generated token list for that line
      **/
     public TokenList tokenizeLine(RISCVprogram program, int lineNum, String theLine, boolean doEqvSubstitutes) {
-        TokenTypes tokenType;
+        // TokenTypes tokenType;
         TokenList result = new TokenList();
         if (theLine.length() == 0)
             return result;

@@ -41,7 +41,7 @@ import rars.SimulationException;
  */
 public abstract class BasicInstruction extends Instruction {
 
-    private String instructionName;
+    // private String instructionName;
     private BasicInstructionFormat instructionFormat;
     private String operationMask;
 

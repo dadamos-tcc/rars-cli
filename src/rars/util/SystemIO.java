@@ -61,11 +61,11 @@ public class SystemIO {
 
     private static final int O_RDONLY = 0x00000000;
     private static final int O_WRONLY = 0x00000001;
-    private static final int O_RDWR = 0x00000002;
+    // private static final int O_RDWR = 0x00000002;
     private static final int O_APPEND = 0x00000008;
-    private static final int O_CREAT = 0x00000200; // 512
-    private static final int O_TRUNC = 0x00000400; // 1024
-    private static final int O_EXCL = 0x00000800; // 2048
+    // private static final int O_CREAT = 0x00000200; // 512
+    // private static final int O_TRUNC = 0x00000400; // 1024
+    // private static final int O_EXCL = 0x00000800; // 2048
 
     private static final int SEEK_SET = 0;
     private static final int SEEK_CUR = 1;
@@ -92,14 +92,14 @@ public class SystemIO {
 
     private static String readStringInternal(String init, String prompt, int maxlength) {
         String input = init;
-        if (Globals.getGui() == null) {
+        // if (Globals.getGui() == null) {
             try {
                 input = getInputReader().readLine();
                 if (input == null)
                     input = "";
             } catch (IOException e) {
             }
-        }
+        // }
         // else {
         //     if (Globals.getSettings().getBooleanSetting(Settings.Bool.POPUP_SYSCALL_INPUT)) {
         //         input = Globals.getGui().getMessagesPane().getInputString(prompt);
@@ -140,13 +140,13 @@ public class SystemIO {
      * Implements syscall having 4 in $v0, to print a string.
      */
     public static void printString(String string) {
-        if (Globals.getGui() == null) {
+        // if (Globals.getGui() == null) {
             try {
                 SystemIO.getOutputWriter().write(string);
                 SystemIO.getOutputWriter().flush();
             } catch (IOException e){
             }
-        }
+        // }
         // else {
         //     print2Gui(string);
         // }
@@ -476,7 +476,7 @@ public class SystemIO {
     // public static void flush(boolean force) {
     //     long time = System.currentTimeMillis();
     //     if (buffer != "" && (force || time > lasttime)){
-    //         // Globals.getGui().getMessagesPane().postRunMessage(buffer);
+    //         Globals.getGui().getMessagesPane().postRunMessage(buffer);
     //         buffer = "";
     //         lasttime = time + 100;
     //     }

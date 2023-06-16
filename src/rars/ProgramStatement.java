@@ -65,7 +65,7 @@ public class ProgramStatement implements Comparable<ProgramStatement> {
     private int textAddress;
     private int sourceLine;
     private int binaryStatement;
-    private boolean altered;
+    // private boolean altered;
     private static final String invalidOperator = "<INVALID>";
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ public class ProgramStatement implements Comparable<ProgramStatement> {
         this.basicStatementList = new BasicStatementList();
         this.machineStatement = null;
         this.binaryStatement = 0;  // nop, or sll $0, $0, 0  (32 bits of 0's)
-        this.altered = false;
+        // this.altered = false;
     }
 
 
@@ -150,7 +150,7 @@ public class ProgramStatement implements Comparable<ProgramStatement> {
                 }
             }
         }
-        this.altered = false;
+        // this.altered = false;
         this.basicStatementList = buildBasicStatementListFromBinaryCode(binaryStatement, instr, operands, numOperands);
     }
 

@@ -1256,16 +1256,16 @@ public class Settings extends Observable {
 
 
     // Save the key-value pair in the Properties object and assure it is written to persisent storage.
-    private void saveFontSetting(int index, String[] settingsKeys, String[] settingsValues) {
-        try {
-            preferences.put(settingsKeys[index], settingsValues[index]);
-            preferences.flush();
-        } catch (SecurityException se) {
-            // cannot write to persistent storage for security reasons
-        } catch (BackingStoreException bse) {
-            // unable to communicate with persistent storage (strange days)
-        }
-    }
+    // private void saveFontSetting(int index, String[] settingsKeys, String[] settingsValues) {
+    //     try {
+    //         preferences.put(settingsKeys[index], settingsValues[index]);
+    //         preferences.flush();
+    //     } catch (SecurityException se) {
+    //         // cannot write to persistent storage for security reasons
+    //     } catch (BackingStoreException bse) {
+    //         // unable to communicate with persistent storage (strange days)
+    //     }
+    // }
 
 
     // Save the key-value pair in the Properties object and assure it is written to persisent storage.

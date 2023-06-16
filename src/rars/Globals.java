@@ -97,7 +97,6 @@ public class Globals {
     private static boolean initialized = false;
     /* The GUI being used (if any) with this simulator. */
     // static VenusUI gui = null;
-    static Object gui = null;
     /**
      * The current version number. Can't wait for "initialize()" call to get it.
      */
@@ -150,14 +149,12 @@ public class Globals {
     }
 
     // public static void setGui(VenusUI g) {
-    public static void setGui(Object g) {
-        gui = g;
-    }
+    //     gui = g;
+    // }
 
     // public static VenusUI getGui() {
-    public static Object getGui() {
-        return gui;
-    }
+    //     return gui;
+    // }
 
     public static Settings getSettings() {
         return settings;

@@ -74,7 +74,7 @@ public class AsciiTextDumpFormat extends AbstractDumpFormat {
     public void dumpMemoryRange(File file, int firstAddress, int lastAddress, Memory memory)
             throws AddressErrorException, IOException {
         PrintStream out = new PrintStream(new FileOutputStream(file));
-        String string = null;
+        // String string = null;
         try {
             for (int address = firstAddress; address <= lastAddress; address += Memory.WORD_LENGTH_BYTES) {
                 Integer temp = memory.getRawWordOrNull(address);

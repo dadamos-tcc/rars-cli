@@ -666,7 +666,8 @@ public class Binary {
         // Don't mistake "0" or a string that starts "0x" for an octal string
         try {
             // we don't care what value Binary.stringToInt(v) returns, just whether it threw exception
-            int dontCare = Binary.stringToInt(v);
+            // int dontCare = Binary.stringToInt(v);
+            Binary.stringToInt(v);
 
             if (isHex(v))
                 return false; // String starts with "0" but continues "0x", so not octal

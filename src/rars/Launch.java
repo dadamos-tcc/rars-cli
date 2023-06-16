@@ -110,7 +110,7 @@ public class Launch {
      **/
 
     private Options options;
-    private boolean gui;
+    // private boolean gui;
     private boolean simulate;
     private boolean rv64;
     private int displayFormat;
@@ -125,7 +125,7 @@ public class Launch {
     private ArrayList<String> registerDisplayList;
     private ArrayList<String> memoryDisplayList;
     private ArrayList<String> filenameList;
-    private int instructionCount;
+    // private int instructionCount;
     private PrintStream out; // stream for display of command line output
     private ArrayList<String[]> dumpTriples = null; // each element holds 3 arguments for dump option
     private ArrayList<String> programArgumentList; // optional program args for program (becomes argc, argv)
@@ -139,13 +139,13 @@ public class Launch {
         Globals.initialize();
 
         options = new Options();
-        gui = args.length == 0;
+        // gui = args.length == 0;
         simulate = true;
         displayFormat = HEXADECIMAL;
         verbose = true;
         assembleProject = false;
         countInstructions = false;
-        instructionCount = 0;
+        // instructionCount = 0;
         assembleErrorExitCode = 0;
         simulateErrorExitCode = 0;
         registerDisplayList = new ArrayList<>();
@@ -158,7 +158,6 @@ public class Launch {
             System.exit(Globals.exitCode);
         }
         
-        if (!gui) {
         // if (gui) {
         //     launchIDE();
         // } else { // running from command line.
@@ -167,7 +166,7 @@ public class Launch {
             
             dumpSegments(runCommand());
             System.exit(Globals.exitCode);
-        }
+        // }
     }
 
     private void displayAllPostMortem(Program program) {
@@ -356,10 +355,10 @@ public class Launch {
                 displayFormat = DECIMAL;
                 continue;
             }
-            if (args[i].toLowerCase().equals("g")) {
-                gui = true;
-                continue;
-            }
+            // if (args[i].toLowerCase().equals("g")) {
+            //     gui = true;
+            //     continue;
+            // }
             if (args[i].toLowerCase().equals("hex")) {
                 displayFormat = HEXADECIMAL;
                 continue;

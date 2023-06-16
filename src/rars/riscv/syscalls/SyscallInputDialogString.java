@@ -63,7 +63,7 @@ public class SyscallInputDialogString extends AbstractSyscall {
     }
 
     public void simulate(ProgramStatement statement) throws ExitingException {
-        String message = NullString.get(statement);
+        // String message = NullString.get(statement);
 
         // Values returned by Java's InputDialog:
         // A null return value means that "Cancel" was chosen rather than OK.

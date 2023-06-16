@@ -5,7 +5,7 @@ import jsoftfloat.RoundingMode;
 import jsoftfloat.types.Float32;
 import rars.ProgramStatement;
 import rars.SimulationException;
-import rars.riscv.hardware.ControlAndStatusRegisterFile;
+// import rars.riscv.hardware.ControlAndStatusRegisterFile;
 import rars.riscv.hardware.FloatingPointRegisterFile;
 import rars.riscv.BasicInstruction;
 import rars.riscv.BasicInstructionFormat;

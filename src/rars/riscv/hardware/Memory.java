@@ -571,7 +571,7 @@ public class Memory extends Observable {
      * @return old value that was replaced by setDouble operation.
      **/
     public double setDouble(int address, double value) throws AddressErrorException {
-        int oldHighOrder, oldLowOrder;
+        // int oldHighOrder, oldLowOrder;
         long longValue = Double.doubleToLongBits(value);
         return Double.longBitsToDouble(setDoubleWord(address,longValue));
     }
@@ -1150,7 +1150,8 @@ public class Memory extends Observable {
     // The "|| Globals.getGui()==null" is a hack added 19 July 2012 DPS.  IF simulation
     // is from command mode, Globals.program is null but still want ability to observe.
     private void notifyAnyObservers(int type, int address, int length, int value) {
-        if ((Globals.program != null || Globals.getGui() == null) && this.observables.size() > 0) {
+        // if ((Globals.program != null || Globals.getGui() == null) && this.observables.size() > 0) {
+        if (this.observables.size() > 0) {
             for (MemoryObservable mo : observables) {
                 if (mo.match(address)) {
                     mo.notifyObserver(new MemoryAccessNotice(type, address, length, value));
