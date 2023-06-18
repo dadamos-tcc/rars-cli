@@ -1,6 +1,6 @@
 package rars.riscv.hardware;
 
-import java.util.Observable;
+// import java.util.Observable;
 
 /*
 Copyright (c) 2003-2006,  Pete Sanderson and Kenneth Vollmar
@@ -37,7 +37,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * @version June 2003
  **/
 
-public class Register extends Observable {
+// public class Register extends Observable {
+public class Register {
     private String name;
     private int number;
     private long resetValue;
@@ -80,7 +81,7 @@ public class Register extends Observable {
      */
 
     public synchronized long getValue() {
-        notifyAnyObservers(AccessNotice.READ);
+        // notifyAnyObservers(AccessNotice.READ);
         return value;
     }
 
@@ -128,7 +129,7 @@ public class Register extends Observable {
     public synchronized long setValue(long val) {
         long old = value;
         value = val;
-        notifyAnyObservers(AccessNotice.WRITE);
+        // notifyAnyObservers(AccessNotice.WRITE);
         return old;
     }
 
@@ -168,12 +169,12 @@ public class Register extends Observable {
     //
     // Method to notify any observers of register operation that has just occurred.
     //
-    private void notifyAnyObservers(int type) {
-        if (this.countObservers() > 0) {// && Globals.program != null) && Globals.program.inSteppedExecution()) {
-            this.setChanged();
-            this.notifyObservers(new RegisterAccessNotice(type, this.name));
-        }
-    }
+    // private void notifyAnyObservers(int type) {
+    //     if (this.countObservers() > 0) {// && Globals.program != null) && Globals.program.inSteppedExecution()) {
+    //         this.setChanged();
+    //         this.notifyObservers(new RegisterAccessNotice(type, this.name));
+    //     }
+    // }
 
 
 }

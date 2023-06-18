@@ -11,7 +11,7 @@ import rars.util.SystemIO;
 // import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Observable;
+// import java.util.Observable;
 
 	/*
 Copyright (c) 2003-2010,  Pete Sanderson and Kenneth Vollmar
@@ -48,7 +48,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * @version August 2005
  **/
 
-public class Simulator extends Observable {
+// public class Simulator extends Observable {
+public class Simulator {
     private SimThread simulatorThread;
     private static Simulator simulator = null;  // Singleton object
     // private static Runnable interactiveGUIUpdater = null;

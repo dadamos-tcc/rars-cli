@@ -2,7 +2,7 @@ package rars.riscv.hardware;
 
 import rars.Globals;
 
-import java.util.Observer;
+// import java.util.Observer;
 
 /*
 Copyright (c) 2017-2019,  Benjamin Landers
@@ -268,16 +268,16 @@ public class ControlAndStatusRegisterFile {
      * Each individual register is a separate object and Observable.  This handy method
      * will add the given Observer to each one.
      */
-    public static void addRegistersObserver(Observer observer) {
-        instance.addRegistersObserver(observer);
-    }
+    // public static void addRegistersObserver(Observer observer) {
+    //     instance.addRegistersObserver(observer);
+    // }
 
     /**
      * Each individual register is a separate object and Observable.  This handy method
      * will delete the given Observer from each one.
      */
-    public static void deleteRegistersObserver(Observer observer) {
-        instance.deleteRegistersObserver(observer);
-    }
+    // public static void deleteRegistersObserver(Observer observer) {
+    //     instance.deleteRegistersObserver(observer);
+    // }
 
 }

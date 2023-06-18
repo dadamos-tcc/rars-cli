@@ -2,7 +2,7 @@ package rars.riscv.hardware;
 
 import rars.util.Binary;
 
-import java.util.Observer;
+// import java.util.Observer;
 
 /*
 Copyright (c) 2003-2017,  Pete Sanderson, Benjamin Landers and Kenneth Vollmar
@@ -169,20 +169,20 @@ public class RegisterBlock {
      * will add the given Observer to each one.  Currently does not apply to Program
      * Counter.
      */
-    public void addRegistersObserver(Observer observer) {
-        for (Register r : regFile) {
-            r.addObserver(observer);
-        }
-    }
+    // public void addRegistersObserver(Observer observer) {
+    //     for (Register r : regFile) {
+    //         r.addObserver(observer);
+    //     }
+    // }
 
     /**
      * Each individual register is a separate object and Observable.  This handy method
      * will delete the given Observer from each one.  Currently does not apply to Program
      * Counter.
      */
-    public void deleteRegistersObserver(Observer observer) {
-        for (Register r : regFile) {
-            r.deleteObserver(observer);
-        }
-    }
+    // public void deleteRegistersObserver(Observer observer) {
+    //     for (Register r : regFile) {
+    //         r.deleteObserver(observer);
+    //     }
+    // }
 }
