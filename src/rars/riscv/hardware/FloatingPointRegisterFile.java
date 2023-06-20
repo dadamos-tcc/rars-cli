@@ -1,6 +1,6 @@
 package rars.riscv.hardware;
 
-import rars.Globals;
+// import rars.Globals;
 
 // import java.util.Observer;
 
@@ -98,19 +98,19 @@ public class FloatingPointRegisterFile {
 
     public static void updateRegister(int num, int val) {
         long lval = val | 0xFFFFFFFF_00000000L; // NAN box if used as float
-        if ((Globals.getSettings().getBackSteppingEnabled())) {
-            Globals.program.getBackStepper().addFloatingPointRestore(num, instance.updateRegister(num, lval));
-        } else {
+        // if ((Globals.getSettings().getBackSteppingEnabled())) {
+        //     Globals.program.getBackStepper().addFloatingPointRestore(num, instance.updateRegister(num, lval));
+        // } else {
             instance.updateRegister(num, lval);
-        }
+        // }
     }
 
     public static void updateRegisterLong(int num, long val) {
-        if ((Globals.getSettings().getBackSteppingEnabled())) {
-            Globals.program.getBackStepper().addFloatingPointRestore(num, instance.updateRegister(num, val));
-        } else {
+        // if ((Globals.getSettings().getBackSteppingEnabled())) {
+        //     Globals.program.getBackStepper().addFloatingPointRestore(num, instance.updateRegister(num, val));
+        // } else {
             instance.updateRegister(num, val);
-        }
+        // }
     }
     /**
      * Gets the raw int value actually stored in a Register.  If you need a

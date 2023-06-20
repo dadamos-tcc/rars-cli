@@ -478,9 +478,9 @@ public class Memory {
                     SimulationException.STORE_ACCESS_FAULT, address);
         }
         // notifyAnyObservers(AccessNotice.WRITE, address, WORD_LENGTH_BYTES, value);
-        if (Globals.getSettings().getBackSteppingEnabled()) {
-            Globals.program.getBackStepper().addMemoryRestoreRawWord(address, oldValue);
-        }
+        // if (Globals.getSettings().getBackSteppingEnabled()) {
+        //     Globals.program.getBackStepper().addMemoryRestoreRawWord(address, oldValue);
+        // }
         return oldValue;
     }
 
@@ -497,9 +497,10 @@ public class Memory {
      **/
     public int setWord(int address, int value) throws AddressErrorException {
         checkStoreWordAligned(address);
-        return (Globals.getSettings().getBackSteppingEnabled())
-                ? Globals.program.getBackStepper().addMemoryRestoreWord(address, set(address, value, WORD_LENGTH_BYTES))
-                : set(address, value, WORD_LENGTH_BYTES);
+        // return (Globals.getSettings().getBackSteppingEnabled())
+        //         ? Globals.program.getBackStepper().addMemoryRestoreWord(address, set(address, value, WORD_LENGTH_BYTES))
+        //         : set(address, value, WORD_LENGTH_BYTES);
+        return set(address, value, WORD_LENGTH_BYTES);
     }
 
 
@@ -519,9 +520,10 @@ public class Memory {
             throw new AddressErrorException("store address not aligned on halfword boundary ",
                     SimulationException.STORE_ADDRESS_MISALIGNED, address);
         }
-        return (Globals.getSettings().getBackSteppingEnabled())
-                ? Globals.program.getBackStepper().addMemoryRestoreHalf(address, set(address, value, 2))
-                : set(address, value, 2);
+        // return (Globals.getSettings().getBackSteppingEnabled())
+        //         ? Globals.program.getBackStepper().addMemoryRestoreHalf(address, set(address, value, 2))
+        //         : set(address, value, 2);
+        return set(address, value, 2);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -535,9 +537,10 @@ public class Memory {
      **/
 
     public int setByte(int address, int value) throws AddressErrorException {
-        return (Globals.getSettings().getBackSteppingEnabled())
-                ? Globals.program.getBackStepper().addMemoryRestoreByte(address, set(address, value, 1))
-                : set(address, value, 1);
+        // return (Globals.getSettings().getBackSteppingEnabled())
+        //         ? Globals.program.getBackStepper().addMemoryRestoreByte(address, set(address, value, 1))
+        //         : set(address, value, 1);
+        return set(address, value, 1);
     }
 
 
@@ -555,9 +558,10 @@ public class Memory {
         oldHighOrder = set(address + 4, (int) (value >> 32), 4);
         oldLowOrder = set(address, (int) value, 4);
         long old = ((long)oldHighOrder << 32) | (oldLowOrder & 0xFFFFFFFFL);
-        return (Globals.getSettings().getBackSteppingEnabled())
-                ? Globals.program.getBackStepper().addMemoryRestoreDoubleWord(address, old)
-                : old;
+        // return (Globals.getSettings().getBackSteppingEnabled())
+        //         ? Globals.program.getBackStepper().addMemoryRestoreDoubleWord(address, old)
+        //         : old;
+        return old;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

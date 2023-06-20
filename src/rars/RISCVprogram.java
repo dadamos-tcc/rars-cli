@@ -2,7 +2,7 @@ package rars;
 
 import rars.assembler.*;
 import rars.riscv.hardware.RegisterFile;
-import rars.simulator.BackStepper;
+// import rars.simulator.BackStepper;
 import rars.simulator.Simulator;
 
 import java.io.BufferedReader;
@@ -57,7 +57,7 @@ public class RISCVprogram {
     private ArrayList<TokenList> tokenList;
     private ArrayList<ProgramStatement> parsedList;
     private ArrayList<ProgramStatement> machineList;
-    private BackStepper backStepper;
+    // private BackStepper backStepper;
     private SymbolTable localSymbolTable;
     private MacroPool macroPool;
     private ArrayList<SourceLine> sourceLineList;
@@ -173,9 +173,9 @@ public class RISCVprogram {
      * @return BackStepper object, null if there is none.
      **/
 
-    public BackStepper getBackStepper() {
-        return backStepper;
-    }
+    // public BackStepper getBackStepper() {
+    //     return backStepper;
+    // }
 
     /**
      * Returns SymbolTable associated with this program.  It is created at assembly time,
@@ -192,9 +192,9 @@ public class RISCVprogram {
      * @return true if enabled, false if disabled or non-existant.
      **/
 
-    public boolean backSteppingEnabled() {
-        return (backStepper != null && backStepper.enabled());
-    }
+    // public boolean backSteppingEnabled() {
+    //     return (backStepper != null && backStepper.enabled());
+    // }
 
     /**
      * Produces specified line of RISCV source program.
@@ -331,10 +331,10 @@ public class RISCVprogram {
 
     public ErrorList assemble(ArrayList<RISCVprogram> programsToAssemble, boolean extendedAssemblerEnabled,
                               boolean warningsAreErrors) throws AssemblyException {
-        this.backStepper = null;
+        // this.backStepper = null;
         Assembler asm = new Assembler();
         this.machineList = asm.assemble(programsToAssemble, extendedAssemblerEnabled, warningsAreErrors);
-        this.backStepper = new BackStepper();
+        // this.backStepper = new BackStepper();
         return asm.getErrorList();
     }
 

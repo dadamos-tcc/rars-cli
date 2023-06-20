@@ -339,8 +339,8 @@ public class Simulator {
             // before the simulation gets underway.  Without them, this happens only intermittently,
             // with a consequence that some simulations are interruptable using PAUSE/STOP and others
             // are not (because one or the other or both is not yet enabled).
-            Thread.currentThread().setPriority(Thread.NORM_PRIORITY - 1);
-            Thread.yield();  // let the main thread run a bit to finish updating the GUI
+            // Thread.currentThread().setPriority(Thread.NORM_PRIORITY - 1);
+            // Thread.yield();  // let the main thread run a bit to finish updating the GUI
 
             if (breakPoints == null || breakPoints.length == 0) {
                 breakPoints = null;
@@ -485,19 +485,19 @@ public class Simulator {
                         instruction.simulate(statement);
 
                         // IF statement added 7/26/06 (explanation above)
-                        if (Globals.getSettings().getBackSteppingEnabled()) {
-                            Globals.program.getBackStepper().addDoNothing(pc);
-                        }
+                        // if (Globals.getSettings().getBackSteppingEnabled()) {
+                        //     Globals.program.getBackStepper().addDoNothing(pc);
+                        // }
                     } catch (BreakpointException b) {
                         // EBREAK needs backstepping support too.
-                        if (Globals.getSettings().getBackSteppingEnabled()) {
-                            Globals.program.getBackStepper().addDoNothing(pc);
-                        }
+                        // if (Globals.getSettings().getBackSteppingEnabled()) {
+                        //     Globals.program.getBackStepper().addDoNothing(pc);
+                        // }
                         ebreak = true;
                     } catch (WaitException w) {
-                        if (Globals.getSettings().getBackSteppingEnabled()) {
-                            Globals.program.getBackStepper().addDoNothing(pc);
-                        }
+                        // if (Globals.getSettings().getBackSteppingEnabled()) {
+                        //     Globals.program.getBackStepper().addDoNothing(pc);
+                        // }
                         waiting = true;
                     } catch (ExitingException e) {
                         if (e.error() == null) {

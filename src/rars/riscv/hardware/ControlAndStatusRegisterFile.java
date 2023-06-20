@@ -1,6 +1,6 @@
 package rars.riscv.hardware;
 
-import rars.Globals;
+// import rars.Globals;
 
 // import java.util.Observer;
 
@@ -95,11 +95,11 @@ public class ControlAndStatusRegisterFile {
         if (num >= 0xC80 && num <= 0xC82) {
             return true;
         }
-        if ((Globals.getSettings().getBackSteppingEnabled())) {
-            Globals.program.getBackStepper().addControlAndStatusRestore(num, instance.updateRegister(num, val));
-        } else {
+        // if ((Globals.getSettings().getBackSteppingEnabled())) {
+        //     Globals.program.getBackStepper().addControlAndStatusRestore(num, instance.updateRegister(num, val));
+        // } else {
             instance.updateRegister(num, val);
-        }
+        // }
         return false;
     }
 
@@ -122,11 +122,11 @@ public class ControlAndStatusRegisterFile {
      * @return old value in register prior to update
      **/
     public static void updateRegisterBackdoor(int num, long val) {
-        if ((Globals.getSettings().getBackSteppingEnabled())) {
-            Globals.program.getBackStepper().addControlAndStatusBackdoor(num, instance.getRegister(num).setValueBackdoor(val));
-        } else {
+        // if ((Globals.getSettings().getBackSteppingEnabled())) {
+        //     Globals.program.getBackStepper().addControlAndStatusBackdoor(num, instance.getRegister(num).setValueBackdoor(val));
+        // } else {
             instance.getRegister(num).setValueBackdoor(val);
-        }
+        // }
     }
 
     /**

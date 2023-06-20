@@ -79,11 +79,11 @@ public class RegisterFile {
         if (num == 0) {
             ;
         } else {
-            if ((Globals.getSettings().getBackSteppingEnabled())) {
-                Globals.program.getBackStepper().addRegisterFileRestore(num, instance.updateRegister(num, val));
-            } else {
+            // if ((Globals.getSettings().getBackSteppingEnabled())) {
+            //     Globals.program.getBackStepper().addRegisterFileRestore(num, instance.updateRegister(num, val));
+            // } else {
                 instance.updateRegister(num, val);
-            }
+            // }
         }
     }
 
@@ -199,9 +199,9 @@ public class RegisterFile {
     public static int setProgramCounter(int value) {
         int old = (int)programCounter.getValue();
         programCounter.setValue(value);
-        if (Globals.getSettings().getBackSteppingEnabled()) {
-            Globals.program.getBackStepper().addPCRestore(old);
-        }
+        // if (Globals.getSettings().getBackSteppingEnabled()) {
+        //     Globals.program.getBackStepper().addPCRestore(old);
+        // }
         return old;
     }
 
