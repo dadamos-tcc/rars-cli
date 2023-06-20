@@ -171,8 +171,8 @@ public class Program {
         SimulationException e = null;
 
         // Swap out global state for local state.
-        // boolean selfMod = Globals.getSettings().getBooleanSetting(Settings.Bool.SELF_MODIFYING_CODE_ENABLED);
-        // Globals.getSettings().setBooleanSettingNonPersistent(Settings.Bool.SELF_MODIFYING_CODE_ENABLED, set.selfModifyingCode);
+        boolean selfMod = Globals.getSettings().getBooleanSetting(Settings.Bool.SELF_MODIFYING_CODE_ENABLED);
+        Globals.getSettings().setBooleanSettingNonPersistent(Settings.Bool.SELF_MODIFYING_CODE_ENABLED, set.selfModifyingCode);
         SystemIO.Data tmpFiles = SystemIO.swapData(fds);
         Memory tmpMem = Memory.swapInstance(simulation);
 
@@ -183,7 +183,7 @@ public class Program {
         }
         exitCode = Globals.exitCode;
 
-        // Globals.getSettings().setBooleanSettingNonPersistent(Settings.Bool.SELF_MODIFYING_CODE_ENABLED, selfMod);
+        Globals.getSettings().setBooleanSettingNonPersistent(Settings.Bool.SELF_MODIFYING_CODE_ENABLED, selfMod);
         SystemIO.swapData(tmpFiles);
         Memory.swapInstance(tmpMem);
 

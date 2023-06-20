@@ -1277,9 +1277,9 @@ public class Assembler {
             forwardReferenceList = new ArrayList<>();
         }
 
-        private int size() {
-            return forwardReferenceList.size();
-        }
+        // private int size() {
+        //     return forwardReferenceList.size();
+        // }
 
         // Add a new forward reference entry. Client must supply the following:
         // - memory address to receive the label's address once resolved
