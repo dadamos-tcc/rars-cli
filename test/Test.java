@@ -276,6 +276,6 @@ public class Test {
         }
         // 12 was the value when this test was written, if instructions are added that intentionally
         // don't have those registers in them add to the register list above or add to the count.
-        if(skips != 12) System.out.println("Unexpected number of psuedo-instructions skipped.");
+        if(skips != 12) System.out.println("Unexpected number of pseudo-instructions skipped.");
     }
 }
