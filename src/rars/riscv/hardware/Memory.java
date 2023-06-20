@@ -330,7 +330,7 @@ public class Memory {
         dataBlockTable = new int[BLOCK_TABLE_LENGTH][]; // array of null int[] references
         stackBlockTable = new int[BLOCK_TABLE_LENGTH][];
         memoryMapBlockTable = new int[MMIO_TABLE_LENGTH][];
-        System.gc(); // call garbage collector on any Table memory just deallocated.
+        // System.gc(); // call garbage collector on any Table memory just deallocated.
     }
 
     // TODO: add some heap managment so programs can malloc and free
